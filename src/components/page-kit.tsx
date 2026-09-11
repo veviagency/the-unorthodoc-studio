@@ -18,11 +18,13 @@ export function FeatureList({ items }: { items: readonly string[] }) {
   return <ul className="feature-list">{items.map(item => <li key={item}><Check/>{item}</li>)}</ul>;
 }
 
-export function MobileStickyCta({ label, onClick }: { label: string; onClick?: () => void }) {
-  return <div className="mobile-sticky"><Button variant="editorial" className="w-full" onClick={onClick}>{label}<ArrowRight/></Button></div>;
+export function MobileStickyCta({ label, href, onClick }: { label: string; href?: string; onClick?: () => void }) {
+  return <div className="mobile-sticky">{href
+    ? <Button asChild variant="editorial" className="w-full"><a href={href} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>
+    : <Button variant="editorial" className="w-full" onClick={onClick}>{label}<ArrowRight/></Button>}</div>;
 }
 
-/** Typographic cover mockup — a designed stand-in, not stock photography. */
+/** Typographic cover treatment for shop items. */
 export function ProductCover({ product, large = false }: { product: (typeof products)[number]; large?: boolean }) {
   return (
     <div className={`product-cover ${product.tone}${large ? " large" : ""}`} aria-hidden>
