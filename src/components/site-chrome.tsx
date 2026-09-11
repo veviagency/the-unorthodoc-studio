@@ -162,12 +162,7 @@ export function SiteHeader() {
       <div className="sticky-header" data-visible={stuck ? "true" : undefined} aria-hidden={!stuck}>
         <div className="site-container sticky-inner">
           <Link to="/" className="sticky-mark" tabIndex={stuck ? 0 : -1}>The UnOrthoDoc</Link>
-          <nav className="sticky-nav" aria-label="Compact navigation">
-            <Link to="/journal" tabIndex={stuck ? 0 : -1}>Read</Link>
-            <Link to="/the-climb-plus" tabIndex={stuck ? 0 : -1}>Learn</Link>
-            <Link to="/shop" tabIndex={stuck ? 0 : -1}>Shop</Link>
-            <Link to="/partnerships" tabIndex={stuck ? 0 : -1}>Collaborate</Link>
-          </nav>
+          {stuck && <DesktopNav className="desktop-nav sticky-nav" label="Compact navigation" />}
           <Button asChild size="sm"><Link to="/the-climb" tabIndex={stuck ? 0 : -1}>Join The Climb</Link></Button>
         </div>
       </div>
