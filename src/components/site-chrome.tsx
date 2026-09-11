@@ -44,7 +44,8 @@ function DesktopNavGroup({
         aria-label={`${group.label} menu`}
         onClick={onToggle}
         onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          // Enter fires a native click on <button>; only Space needs handling here.
+          if (e.key === " " || e.key === "Spacebar") {
             e.preventDefault();
             onToggle();
           }

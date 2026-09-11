@@ -15,6 +15,10 @@ export const INTEGRATIONS = {
   EMAIL_PLATFORM_FORM_URL: "EMAIL_PLATFORM_FORM_URL",
 } as const;
 
+/** Set these to the live checkout links once payments are connected. */
+export const MEMBERSHIP_CHECKOUT_URL: string | null = null;
+export const COURSE_CHECKOUT_URL: string | null = null;
+
 export const journalTopics = [
   { slug: "personal-development", label: "Personal Development", pillar: "Live Well" },
   { slug: "professional-financial-growth", label: "Professional & Financial Growth", pillar: "Build Well" },
