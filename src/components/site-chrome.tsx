@@ -46,12 +46,6 @@ function DesktopNavGroup({ group }: { group: NavGroup }) {
         aria-expanded={open}
         aria-label={`${group.label} menu`}
         onClick={() => setOpen((v) => !v)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
-            e.preventDefault();
-            setOpen((v) => !v);
-          }
-        }}
       >
         <ChevronDown aria-hidden />
       </button>
