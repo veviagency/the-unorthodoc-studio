@@ -84,21 +84,23 @@ function HomePage() {
         <Button asChild size="lg" variant="editorial"><Link to="/the-climb-plus">Explore The Climb+ <ArrowRight/></Link></Button>
       </div>
       <div className="membership-card membership-card-light">
-        <span className="eyebrow">Member’s edition</span><h3>Reflection for the season you’re in.</h3>
+        <span className="eyebrow">Membership</span><h3>$19 a month, or $179 a year.</h3>
         <p>Less noise. More honesty, context, and practical perspective for what comes next.</p>
+        <Button asChild variant="editorial"><Link to="/the-climb-plus">Join The Climb+ <ArrowRight/></Link></Button>
       </div>
     </div></section>
 
     <section className="section section-muted"><div className="site-container">
-      <SectionHeading eyebrow="Learn & shop" title="Useful things for real life." action={{label:"Explore the shop",to:"/shop"}}/>
+      <SectionHeading eyebrow="Learn & shop" title="Practical resources for real life." action={{label:"Explore the shop",to:"/shop"}}/>
       <div className="product-grid">
         <Link to="/side-hustle-blueprint" className="product-card">
           <div className="product-cover ink"><span className="cover-kicker">Self-paced course</span><span className="cover-title"><span>The Side</span><span>Hustle</span><span>Blueprint</span></span><span className="cover-note">The UnOrthoDoc</span></div>
           <span>Self-paced course</span><h3>The Side Hustle Blueprint</h3>
           <p>A step-by-step framework for turning the skills you already have into meaningful additional income—without quitting your job.</p>
+          <strong className="price">$197 · or 3 × $75</strong>
           <span className="product-cta">Explore the course <ArrowRight/></span>
         </Link>
-        {products.map(p=>(
+        {products.filter(p=>["from-idea-to-profit","triblend-unisex-tee"].includes(p.slug)).map(p=>(
           <Link key={p.slug} to="/shop/$slug" params={{slug:p.slug}} className="product-card">
             <ProductCover product={p}/>
             <span>{p.kind}</span><h3>{p.title}</h3><p>{p.text}</p>
