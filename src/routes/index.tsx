@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { NewsletterForm } from "@/components/forms";
 import { FeatureList, ProductCover, SectionHeading } from "@/components/page-kit";
 import { articles, paths, pillars, products } from "@/lib/site-data";
+import { DefinitionCallout } from "@/routes/about";
 import portrait from "@/assets/dr-patrice.webp";
 
 export const Route = createFileRoute("/")({

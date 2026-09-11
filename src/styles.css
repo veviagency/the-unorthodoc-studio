@@ -148,3 +148,20 @@ html,body{overflow-x:clip}
   .article-card h3{font-size:1.35rem;margin:0 0 .45rem}
   .article-card p{font-size:.92rem}
 }
+
+/* Brand-faithfulness pass: definition callout + offer heroes */
+.definition-callout{margin-top:2rem;padding:1.1rem 1.3rem;border-left:2px solid var(--clay);background:var(--muted);max-width:460px}
+.definition-word{display:block;font:400 1.5rem/1 var(--font-display)}
+.definition-say{display:block;margin:.35rem 0 .6rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground)}
+.definition-callout p{margin:0;font-size:.92rem;color:var(--muted-foreground)}
+.offer-hero{padding:3rem 0}
+.offer-grid{display:grid;gap:2rem;align-items:center}
+.offer-hero h1{font-size:clamp(2.6rem,5.4vw,4.6rem);margin:.2rem 0 1rem}
+.offer-hero p{max-width:560px;color:var(--muted-foreground)}
+.offer-card{border:1px solid var(--border);background:var(--muted);padding:1.8rem}
+.offer-card .price-row{display:flex;align-items:baseline;gap:.4rem}
+.offer-card .price{font:400 3.4rem/1 var(--font-display)}
+.offer-card .price-alt{margin:.4rem 0 1.2rem;color:var(--muted-foreground)}
+.offer-card .price-note{margin:.8rem 0 0;font-size:.78rem;color:var(--muted-foreground)}
+.offer-card a{width:100%}
+@media(min-width:768px){.offer-hero{padding:4rem 0}.offer-grid{grid-template-columns:1.15fr .85fr;gap:4rem}}
