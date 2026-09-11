@@ -73,7 +73,9 @@ export const pillars = [
  * Editorial concept entries. These are clearly marked as concept pieces rather
  * than published articles until real titles are supplied.
  */
-export const articles = [
+export type Article = { id: string; topic: TopicSlug; pillar: string; title: string; excerpt: string; featured?: boolean };
+
+export const articles: readonly Article[] = [
   {
     id: "beyond-one-title",
     topic: "personal-development",
@@ -87,7 +89,7 @@ export const articles = [
   { id: "first-side-hustle-step", topic: "side-hustle", pillar: "Build Well", title: "The quiet first step of a side hustle", excerpt: "Before the launch, the branding, or the website—there is one decision that matters." },
   { id: "smile-health", topic: "oral-care-smile-health", pillar: "Care Well", title: "A considered approach to smile health", excerpt: "Clear, trustworthy guidance shaped by clinical experience." },
   { id: "money-conversations", topic: "professional-financial-growth", pillar: "Build Well", title: "The money conversations professionals avoid", excerpt: "Financial growth is rarely about income alone." },
-] as const;
+];
 
 export const products = [
   {
