@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MobileStickyCta, SectionHeading } from "@/components/page-kit";
+import { CheckoutButton, MobileStickyCta, SectionHeading } from "@/components/page-kit";
+import { COURSE_CHECKOUT_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/side-hustle-blueprint")({
   head: () => ({ meta: [
@@ -33,7 +34,7 @@ function Blueprint() {
       <div className="offer-card">
         <div className="price-row"><span className="price">$197</span></div>
         <p className="price-alt">or 3 payments of $75</p>
-        <Button asChild size="lg" variant="editorial"><Link to="/contact" search={{ topic: "collaboration" }}>Enroll now <ArrowRight/></Link></Button>
+        <CheckoutButton label="Enroll now" url={COURSE_CHECKOUT_URL} size="lg"/>
         <p className="price-note">Lifetime access, work at your own pace.</p>
       </div>
     </div></section>
