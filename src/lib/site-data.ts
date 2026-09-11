@@ -1,4 +1,13 @@
 import { linkOptions } from "@tanstack/react-router";
+import coverOralCare from "@/assets/products/adult-oral-care-blueprint.webp";
+import coverIdeaToProfit from "@/assets/products/from-idea-to-profit.webp";
+import coverTimeManagement from "@/assets/products/time-management-for-busy-professionals.webp";
+import coverSideHustle1 from "@/assets/products/side-hustle-guide-vol-1.webp";
+import coverSideHustle2 from "@/assets/products/side-hustle-guide-vol-2.webp";
+import coverHustleJournal from "@/assets/products/hustle-journal.webp";
+import coverSideHustleWorkbook from "@/assets/products/side-hustle-workbook.webp";
+import coverSocialPlanner from "@/assets/products/social-media-planner.webp";
+import coverCreatorPlanner from "@/assets/products/creator-success-planner.webp";
 
 export const INTEGRATIONS = {
   PAYMENT_URL: "PAYMENT_URL",
@@ -262,3 +271,16 @@ export const products = [
   },
 ] as const;
 
+
+/** Real cover artwork from the UnOrthoDoc store, keyed by product slug. */
+export const productImages: Record<string, string> = {
+  "adult-oral-care-blueprint": coverOralCare,
+  "from-idea-to-profit": coverIdeaToProfit,
+  "time-management-for-busy-professionals": coverTimeManagement,
+  "side-hustle-guide-vol-1": coverSideHustle1,
+  "side-hustle-guide-vol-2": coverSideHustle2,
+  "hustle-journal": coverHustleJournal,
+  "side-hustle-workbook": coverSideHustleWorkbook,
+  "social-media-planner": coverSocialPlanner,
+  "creator-success-planner": coverCreatorPlanner,
+};
