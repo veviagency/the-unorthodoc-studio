@@ -137,3 +137,4 @@ html,body{overflow-x:clip}
 .product-cover .cover-title{font-size:clamp(1.8rem,3.6vw,2.6rem);text-transform:none;letter-spacing:-.01em;line-height:1.05;font-family:var(--font-display)}
 .product-cover.large .cover-title{font-size:clamp(2.4rem,4.4vw,3.4rem)}
 .product-cover .cover-kicker,.product-cover .cover-note{font-size:.6rem;letter-spacing:.2em}
+.product-cover .cover-title span{font:inherit;text-transform:none;letter-spacing:inherit;display:block}
