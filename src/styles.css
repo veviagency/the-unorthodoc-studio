@@ -129,3 +129,4 @@ a.bg-background,button.bg-background{color:var(--foreground)}
   .section{padding:4rem 0}
   .hero{padding:2rem 0 3rem}
 }
+@media(min-width:768px){.path-card{min-height:236px}.product-card{min-height:auto}.hero-grid{min-height:560px}}
