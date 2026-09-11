@@ -28,9 +28,9 @@ function Shop() {
     <PageHero eyebrow="The shop" title="Practical resources for a full life." intro="Planners, e-books, and workbooks I built for the way I actually work—plus apparel for people building beyond one title." compact/>
     <section className="section"><div className="site-container">
       <nav className="topic-filter" aria-label="Filter by collection">
-        <Link to="/shop" search={{}} data-active={!active ? "true" : undefined}>Everything</Link>
+        <Link to="/shop" search={{}} resetScroll={false} data-active={!active ? "true" : undefined}>Everything</Link>
         {collections.map((c) => (
-          <Link key={c.slug} to="/shop" search={{ collection: c.slug as string }} data-active={active?.slug === c.slug ? "true" : undefined}>{c.label}</Link>
+          <Link key={c.slug} to="/shop" search={{ collection: c.slug as string }} resetScroll={false} data-active={active?.slug === c.slug ? "true" : undefined}>{c.label}</Link>
         ))}
       </nav>
       <SectionHeading eyebrow={active ? `Collection · ${active.label}` : "The collection"} title="Made to be used often."/>
