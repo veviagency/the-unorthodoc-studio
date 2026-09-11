@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/page-kit";
-import { activeJournalTopics, articles, journalTopics, pillars } from "@/lib/site-data";
+import { activeJournalTopics, articles, journalTopics } from "@/lib/site-data";
 
 export const Route = createFileRoute("/journal")({
   validateSearch: (search: Record<string, unknown>): { topic?: string } =>
@@ -63,15 +63,5 @@ function Journal() {
             ))}</div>}
       </div>
     </section>
-
-    <section className="section section-muted"><div className="site-container">
-      <SectionHeading eyebrow="The editorial lens" title="A whole-life approach." text="Work matters. So do the person you are, the people you love, and the life you are creating around it. Every piece here sits inside one of three pillars."/>
-      <div className="pillar-grid">{pillars.map((p) => (
-        <Link key={p.title} to="/journal" search={{ topic: p.topic as string }} className={`pillar-card ${p.tone}`}>
-          <span>{p.kicker}</span><h3>{p.title}</h3><p>{p.text}</p>
-          <span className="pillar-cta">Explore {p.title} <ArrowRight/></span>
-        </Link>
-      ))}</div>
-    </div></section>
   </>;
 }
