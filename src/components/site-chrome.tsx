@@ -62,7 +62,7 @@ function DesktopNavGroup({
   );
 }
 
-function DesktopNav() {
+function DesktopNav({ className = "desktop-nav", label = "Main navigation" }: { className?: string; label?: string }) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
