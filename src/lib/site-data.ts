@@ -93,7 +93,7 @@ export const navGroups = [
     hub: linkOptions({ to: "/journal" }),
     items: [
       { label: "The Journal", link: linkOptions({ to: "/journal" }) },
-      ...journalTopics.map((topic) => ({
+      ...activeJournalTopics.map((topic) => ({
         label: topic.label,
         link: linkOptions({ to: "/journal", search: { topic: topic.slug as string } }),
       })),
