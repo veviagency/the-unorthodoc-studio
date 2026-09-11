@@ -144,9 +144,9 @@ export function SiteFooter() {
     <div className="footer-grid">
       <div><h3>Explore</h3><Link to="/journal">Journal</Link><Link to="/about">About Dr. Patrice</Link></div>
       <div><h3>Learn</h3><Link to="/the-climb">The Climb</Link><Link to="/the-climb-plus">The Climb+</Link><Link to="/side-hustle-blueprint">Side Hustle Blueprint</Link></div>
-      <div><h3>Shop</h3><Link to="/shop" search={{ collection: "apparel" }}>Apparel</Link></div>
-      <div><h3>Collaborate</h3><Link to="/partnerships">Strategic Partnerships</Link><Link to="/contact" search={{ topic: "media-kit" }}>Media Kit Request</Link><Link to="/contact" search={{ topic: "collaboration" }}>Work With Dr. Patrice</Link></div>
-      <div><h3>Follow</h3><a href="https://www.instagram.com/theunorthodoc/" target="_blank" rel="noreferrer"><Instagram/> Instagram</a><span>Privacy Policy</span><span>Terms & Disclaimer</span></div>
+      <div><h3>Shop</h3><Link to="/shop" search={{ collection: "digital" }}>Planners & E-Books</Link><Link to="/shop" search={{ collection: "apparel" }}>Apparel</Link></div>
+      <div><h3>Collaborate</h3><Link to="/partnerships">Strategic Partnerships</Link><Link to="/contact" search={{ topic: "media-kit" }}>Media Kit Request</Link><Link to="/contact" search={{ topic: "collaboration" }}>Work With Dr. Patrice</Link><Link to="/contact" search={{ topic: "media-kit" }}>Press</Link></div>
+      <div><h3>Follow</h3><a href="https://www.instagram.com/theunorthodoc/" target="_blank" rel="noreferrer"><Instagram/> Instagram</a><Link to="/the-climb-plus">Member Login</Link><span>Privacy Policy</span><span>Terms & Disclaimer</span></div>
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} The UnOrthoDoc</span><a href="https://www.infinityorthodc.com/" target="_blank" rel="noreferrer">Looking for orthodontic care in Washington, DC? Visit Infinity Orthodontics. <span aria-hidden>↗</span></a></div>
   </div></footer>;
