@@ -49,7 +49,7 @@ function HomePage() {
             <span>{featured.pillar} · {featured.date}</span>
             <h3>{featured.title}</h3>
             <p>{featured.excerpt}</p>
-            <span className="featured-cta">Read the reflection <ArrowRight/></span>
+            <span className="featured-cta">Explore {featured.pillar} <ArrowRight/></span>
           </div>
         </Link>
         <div className="article-list">{secondary.map(a=>(

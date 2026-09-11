@@ -33,7 +33,7 @@ function Journal() {
         <span className="eyebrow">Featured · {featured.date}</span>
         <h2>{featured.title}</h2>
         <p>{featured.excerpt}</p>
-        <span className="journal-feature-cta">Read the reflection <ArrowRight/></span>
+        <span className="journal-feature-cta">Explore {featured.pillar} <ArrowRight/></span>
       </Link>
     </div></section>
 
@@ -69,7 +69,7 @@ function Journal() {
       <div className="pillar-grid">{pillars.map((p) => (
         <Link key={p.title} to="/journal" search={{ topic: p.topic as string }} className={`pillar-card ${p.tone}`}>
           <span>{p.kicker}</span><h3>{p.title}</h3><p>{p.text}</p>
-          <span className="pillar-cta">Read {p.title} <ArrowRight/></span>
+          <span className="pillar-cta">Explore {p.title} <ArrowRight/></span>
         </Link>
       ))}</div>
     </div></section>
