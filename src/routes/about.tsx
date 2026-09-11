@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DefinitionCallout, PageHero, SectionHeading } from "@/components/page-kit";
+import portraitRed from "@/assets/dr-patrice-red.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return <>
-    <PageHero portraitImage eyebrow="Meet Dr. Patrice" title="A full life was never going to fit in one box." intro="I’m Patrice—an orthodontist, writer, wife, mother of three, and the person behind The UnOrthoDoc."/>
+    <PageHero portraitImage portraitSrc={portraitRed} portraitAlt="Dr. Patrice Smith in a red blazer" eyebrow="Meet Dr. Patrice" title="A full life was never going to fit in one box." intro="I’m Patrice—an orthodontist, writer, wife, mother of three, and the person behind The UnOrthoDoc."/>
     <section className="section"><div className="site-container about-layout">
       <div>
         <SectionHeading eyebrow="The story" title="Beyond the labels."/>
