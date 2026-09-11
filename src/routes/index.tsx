@@ -76,7 +76,7 @@ function HomePage() {
       <div className="membership-card membership-card-light">
         <span className="eyebrow">Membership</span><h3>$19 a month, or $179 a year.</h3>
         <p>Less noise. More honesty, context, and practical perspective for what comes next.</p>
-        <Button asChild variant="editorial"><Link to="/the-climb-plus">Join The Climb+ <ArrowRight/></Link></Button>
+        <Button asChild variant="editorial"><Link to="/the-climb-plus">Explore The Climb+ <ArrowRight/></Link></Button>
       </div>
     </div></section>
 
