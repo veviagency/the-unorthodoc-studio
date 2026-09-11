@@ -151,11 +151,7 @@ export function SiteHeader() {
       <header className="site-header">
         <div className="site-container header-inner">
           <Link to="/" className="wordmark" aria-label="The UnOrthoDoc home"><span>The</span> UnOrthoDoc</Link>
-          <nav className="desktop-nav" aria-label="Main navigation">
-            <Link to="/" activeOptions={{ exact: true }} activeProps={{ "data-active": "true" }}>Home</Link>
-            {navGroups.map((group) => <DesktopNavGroup group={group} key={group.label} />)}
-            <Link to="/about" activeProps={{ "data-active": "true" }}>About</Link>
-          </nav>
+          <DesktopNav />
           <Button asChild className="header-cta"><Link to="/the-climb">Join The Climb</Link></Button>
           <Button variant="ghost" size="icon" className="mobile-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>{open ? <X/> : <Menu/>}</Button>
         </div>
