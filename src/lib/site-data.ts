@@ -8,7 +8,7 @@ import coverHustleJournal from "@/assets/products/hustle-journal.webp";
 import coverSideHustleWorkbook from "@/assets/products/side-hustle-workbook.webp";
 import coverSocialPlanner from "@/assets/products/social-media-planner.webp";
 import coverCreatorPlanner from "@/assets/products/creator-success-planner.webp";
-import coverTee from "@/assets/products/triblend-unisex-tee.webp";
+import coverTee from "@/assets/products/triblend-unisex-tee.png";
 
 export const INTEGRATIONS = {
   PAYMENT_URL: "PAYMENT_URL",
