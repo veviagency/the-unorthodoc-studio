@@ -4,9 +4,8 @@ import { SectionHeading } from "@/components/page-kit";
 import { articles, journalTopics, pillars } from "@/lib/site-data";
 
 export const Route = createFileRoute("/journal")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    topic: typeof search.topic === "string" ? search.topic : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { topic?: string } =>
+    typeof search['topic'] === "string" ? { topic: search['topic'] as string } : {},
   head: () => ({ meta: [
     { title: "The Journal — The UnOrthoDoc" },
     { name: "description", content: "Thoughtful writing from Dr. Patrice Smith on life, work, finances, motherhood, side hustles, and smile health." },

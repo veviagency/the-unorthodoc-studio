@@ -3,9 +3,8 @@ import { ContactForm } from "@/components/forms";
 import { PageHero } from "@/components/page-kit";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    topic: typeof search.topic === "string" ? search.topic : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { topic?: string } =>
+    typeof search['topic'] === "string" ? { topic: search['topic'] as string } : {},
   head: () => ({ meta: [
     { title: "Media Kit & Contact — The UnOrthoDoc" },
     { name: "description", content: "Contact The UnOrthoDoc about strategic partnerships, speaking, media, and aligned brand opportunities." },
