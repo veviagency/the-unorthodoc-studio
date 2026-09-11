@@ -196,7 +196,7 @@ html,body{overflow-x:clip}
 @media(max-width:767px){
   /* Vertical rhythm */
   .section{padding:3.5rem 0}
-  .hero{padding:1.75rem 0 2.5rem}
+  .hero{padding:1.5rem 0 1.5rem}
   .hero-grid,.page-hero-grid{gap:1.75rem}
   .page-hero{padding:2.75rem 0}
   .compact-hero,.journal-hero,.offer-hero,.product-hero{padding:2.5rem 0}
