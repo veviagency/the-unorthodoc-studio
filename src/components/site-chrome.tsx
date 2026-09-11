@@ -77,8 +77,8 @@ function DesktopNav({ className = "desktop-nav", label = "Main navigation" }: { 
 
   return (
     <nav
-      className="desktop-nav"
-      aria-label="Main navigation"
+      className={className}
+      aria-label={label}
       onMouseLeave={closeSoon}
       onMouseEnter={cancelClose}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) closeNow(); }}
