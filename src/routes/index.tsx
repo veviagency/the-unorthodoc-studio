@@ -100,7 +100,7 @@ function HomePage() {
           <strong className="price">$197 · or 3 × $75</strong>
           <span className="product-cta">Explore the course <ArrowRight/></span>
         </Link>
-        {products.filter(p=>["from-idea-to-profit","triblend-unisex-tee"].includes(p.slug)).map(p=>(
+        {products.filter(p=>["from-idea-to-profit","time-management-for-busy-professionals"].includes(p.slug)).map(p=>(
           <Link key={p.slug} to="/shop/$slug" params={{slug:p.slug}} className="product-card">
             <ProductCover product={p}/>
             <span>{p.kind}</span><h3>{p.title}</h3><p>{p.text}</p>
