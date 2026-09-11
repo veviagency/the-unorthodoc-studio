@@ -4,6 +4,7 @@ import { PageHero, ProductCover, SectionHeading } from "@/components/page-kit";
 import { products } from "@/lib/site-data";
 
 const collections = [
+  { slug: "digital", label: "Planners & E-Books" },
   { slug: "apparel", label: "Apparel" },
 ] as const;
 
@@ -24,7 +25,7 @@ function Shop() {
   const list = active ? products.filter((p) => p.collection === active.slug) : products;
 
   return <>
-    <PageHero eyebrow="The shop" title="Contrary to what is usual." intro="Apparel for people building a full life beyond one title." compact/>
+    <PageHero eyebrow="The shop" title="Practical resources for a full life." intro="Planners, e-books, and workbooks I built for the way I actually work—plus apparel for people building beyond one title." compact/>
     <section className="section"><div className="site-container">
       <nav className="topic-filter" aria-label="Filter by collection">
         <Link to="/shop" search={{}} data-active={!active ? "true" : undefined}>Everything</Link>
@@ -32,7 +33,7 @@ function Shop() {
           <Link key={c.slug} to="/shop" search={{ collection: c.slug as string }} data-active={active?.slug === c.slug ? "true" : undefined}>{c.label}</Link>
         ))}
       </nav>
-      <SectionHeading eyebrow={active ? `Collection · ${active.label}` : "The collection"} title="Made to be worn often."/>
+      <SectionHeading eyebrow={active ? `Collection · ${active.label}` : "The collection"} title="Made to be used often."/>
       <div className="product-grid">{list.map((p) => (
         <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="product-card">
           <ProductCover product={p}/>
