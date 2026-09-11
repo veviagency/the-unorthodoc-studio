@@ -46,16 +46,15 @@ function HomePage() {
       <div className="featured-layout">
         <Link to="/journal" search={{ topic: featured.topic as string }} className="featured-article featured-editorial">
           <div className="featured-inner">
-            <span>Concept piece · {featured.pillar}</span>
-            <blockquote>“A life can be ambitious and still feel like your own.”</blockquote>
+            <span>{featured.pillar} · {featured.date}</span>
             <h3>{featured.title}</h3>
             <p>{featured.excerpt}</p>
             <span className="featured-cta">Read the reflection <ArrowRight/></span>
           </div>
         </Link>
-        <div>{secondary.map(a=>(
+        <div className="article-list">{secondary.map(a=>(
           <Link to="/journal" search={{ topic: a.topic as string }} className="article-card" key={a.id}>
-            <span>{a.pillar}</span><h3>{a.title}</h3><p>{a.excerpt}</p><span className="concept-tag">Concept</span>
+            <span>{a.pillar} · {a.date}</span><h3>{a.title}</h3><p>{a.excerpt}</p>
           </Link>
         ))}</div>
       </div>

@@ -49,7 +49,7 @@ function Journal() {
         <SectionHeading
           eyebrow={active ? `Topic · ${active.pillar}` : "All writing"}
           title={active ? active.label : "Ideas worth sitting with."}
-          text={active ? undefined : "Recent essays and reflections from Dr. Patrice Smith."}
+          text={active ? "" : "Recent essays and reflections from Dr. Patrice Smith."}
         />
 
         {list.length === 0
