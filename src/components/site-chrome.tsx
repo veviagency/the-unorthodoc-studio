@@ -62,7 +62,7 @@ function DesktopNavGroup({
   );
 }
 
-function DesktopNav() {
+function DesktopNav({ className = "desktop-nav", label = "Main navigation" }: { className?: string; label?: string }) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -77,8 +77,8 @@ function DesktopNav() {
 
   return (
     <nav
-      className="desktop-nav"
-      aria-label="Main navigation"
+      className={className}
+      aria-label={label}
       onMouseLeave={closeSoon}
       onMouseEnter={cancelClose}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) closeNow(); }}
@@ -162,12 +162,7 @@ export function SiteHeader() {
       <div className="sticky-header" data-visible={stuck ? "true" : undefined} aria-hidden={!stuck}>
         <div className="site-container sticky-inner">
           <Link to="/" className="sticky-mark" tabIndex={stuck ? 0 : -1}>The UnOrthoDoc</Link>
-          <nav className="sticky-nav" aria-label="Compact navigation">
-            <Link to="/journal" tabIndex={stuck ? 0 : -1}>Read</Link>
-            <Link to="/the-climb-plus" tabIndex={stuck ? 0 : -1}>Learn</Link>
-            <Link to="/shop" tabIndex={stuck ? 0 : -1}>Shop</Link>
-            <Link to="/partnerships" tabIndex={stuck ? 0 : -1}>Collaborate</Link>
-          </nav>
+          {stuck && <DesktopNav className="desktop-nav sticky-nav" label="Compact navigation" />}
           <Button asChild size="sm"><Link to="/the-climb" tabIndex={stuck ? 0 : -1}>Join The Climb</Link></Button>
         </div>
       </div>
