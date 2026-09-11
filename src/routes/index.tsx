@@ -46,16 +46,15 @@ function HomePage() {
       <div className="featured-layout">
         <Link to="/journal" search={{ topic: featured.topic as string }} className="featured-article featured-editorial">
           <div className="featured-inner">
-            <span>Concept piece · {featured.pillar}</span>
-            <blockquote>“A life can be ambitious and still feel like your own.”</blockquote>
+            <span>{featured.pillar} · {featured.date}</span>
             <h3>{featured.title}</h3>
             <p>{featured.excerpt}</p>
             <span className="featured-cta">Read the reflection <ArrowRight/></span>
           </div>
         </Link>
-        <div>{secondary.map(a=>(
+        <div className="article-list">{secondary.map(a=>(
           <Link to="/journal" search={{ topic: a.topic as string }} className="article-card" key={a.id}>
-            <span>{a.pillar}</span><h3>{a.title}</h3><p>{a.excerpt}</p><span className="concept-tag">Concept</span>
+            <span>{a.pillar} · {a.date}</span><h3>{a.title}</h3><p>{a.excerpt}</p>
           </Link>
         ))}</div>
       </div>
@@ -89,15 +88,15 @@ function HomePage() {
     </div></section>
 
     <section className="section section-muted"><div className="site-container">
-      <SectionHeading eyebrow="Learn & shop" title="Useful things for real life." text="Thoughtfully made tools for building with more clarity—not more noise." action={{label:"Explore the shop",to:"/shop"}}/>
+      <SectionHeading eyebrow="Learn & shop" title="Useful things for real life." action={{label:"Explore the shop",to:"/shop"}}/>
       <div className="product-grid">
         <Link to="/side-hustle-blueprint" className="product-card">
-          <div className="product-cover ink"><span className="cover-kicker">Self-paced course</span><span className="cover-title"><span>The Side</span><span>Hustle</span><span>Blueprint</span></span><span className="cover-note">Lifetime access</span></div>
+          <div className="product-cover ink"><span className="cover-kicker">Self-paced course</span><span className="cover-title"><span>The Side</span><span>Hustle</span><span>Blueprint</span></span><span className="cover-note">The UnOrthoDoc</span></div>
           <span>Self-paced course</span><h3>The Side Hustle Blueprint</h3>
           <p>A step-by-step framework for turning the skills you already have into meaningful additional income—without quitting your job.</p>
           <span className="product-cta">Explore the course <ArrowRight/></span>
         </Link>
-        {products.slice(0,2).map(p=>(
+        {products.map(p=>(
           <Link key={p.slug} to="/shop/$slug" params={{slug:p.slug}} className="product-card">
             <ProductCover product={p}/>
             <span>{p.kind}</span><h3>{p.title}</h3><p>{p.text}</p>

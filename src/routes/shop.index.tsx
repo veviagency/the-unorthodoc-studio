@@ -4,16 +4,15 @@ import { PageHero, ProductCover, SectionHeading } from "@/components/page-kit";
 import { products } from "@/lib/site-data";
 
 const collections = [
-  { slug: "digital", label: "Planners & E-Books" },
   { slug: "apparel", label: "Apparel" },
 ] as const;
 
 export const Route = createFileRoute("/shop/")({
   head: () => ({ meta: [
     { title: "Shop — The UnOrthoDoc" },
-    { name: "description", content: "Explore practical digital guides, planners, and thoughtful tools from The UnOrthoDoc." },
+    { name: "description", content: "Shop The UnOrthoDoc apparel, including the Contrary To What Is Usual triblend unisex tee." },
     { property: "og:title", content: "Shop — The UnOrthoDoc" },
-    { property: "og:description", content: "Thoughtfully made tools for building a meaningful life with more clarity." },
+    { property: "og:description", content: "Apparel for people building beyond one title." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}),
   component: Shop,
@@ -25,7 +24,7 @@ function Shop() {
   const list = active ? products.filter((p) => p.collection === active.slug) : products;
 
   return <>
-    <PageHero eyebrow="The shop" title="Tools for the life behind the goals." intro="Digital resources made to help you think clearly, take the next step, and build without adding more noise." compact/>
+    <PageHero eyebrow="The shop" title="Contrary to what is usual." intro="Apparel for people building a full life beyond one title." compact/>
     <section className="section"><div className="site-container">
       <nav className="topic-filter" aria-label="Filter by collection">
         <Link to="/shop" search={{}} data-active={!active ? "true" : undefined}>Everything</Link>
@@ -33,7 +32,7 @@ function Shop() {
           <Link key={c.slug} to="/shop" search={{ collection: c.slug as string }} data-active={active?.slug === c.slug ? "true" : undefined}>{c.label}</Link>
         ))}
       </nav>
-      <SectionHeading eyebrow={active ? `Collection · ${active.label}` : "The collection"} title="Practical by design."/>
+      <SectionHeading eyebrow={active ? `Collection · ${active.label}` : "The collection"} title="Made to be worn often."/>
       <div className="product-grid">{list.map((p) => (
         <Link key={p.slug} to="/shop/$slug" params={{ slug: p.slug }} className="product-card">
           <ProductCover product={p}/>

@@ -9,6 +9,7 @@ type NavGroup = (typeof navGroups)[number];
 function DesktopNavGroup({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const chevron = useRef<HTMLButtonElement | null>(null);
 
   const openNow = () => {
     if (timer.current) clearTimeout(timer.current);
@@ -29,15 +30,28 @@ function DesktopNavGroup({ group }: { group: NavGroup }) {
       onMouseLeave={closeSoon}
       onFocus={openNow}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false); }}
-      onKeyDown={(e) => { if (e.key === "Escape") { setOpen(false); (e.target as HTMLElement).blur(); } }}
+      onKeyDown={(e) => {
+        if (e.key === "Escape" && open) {
+          e.stopPropagation();
+          setOpen(false);
+          chevron.current?.focus();
+        }
+      }}
     >
       <Link {...group.hub} className="nav-hub" activeProps={{ "data-active": "true" }}>{group.label}</Link>
       <button
         type="button"
+        ref={chevron}
         className="nav-chevron"
         aria-expanded={open}
         aria-label={`${group.label} menu`}
         onClick={() => setOpen((v) => !v)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+            e.preventDefault();
+            setOpen((v) => !v);
+          }
+        }}
       >
         <ChevronDown aria-hidden />
       </button>
@@ -134,9 +148,10 @@ export function SiteFooter() {
   return <footer className="site-footer"><div className="site-container">
     <div className="footer-lead"><div><Link to="/" className="wordmark wordmark-light"><span>The</span> UnOrthoDoc</Link><p>For professionals building meaningful work, stronger finances, and a full life beyond one title.</p></div><Button asChild variant="inverse"><Link to="/the-climb">Receive The Climb</Link></Button></div>
     <div className="footer-grid">
-      <div><h3>Explore</h3><Link to="/journal">Journal</Link><Link to="/about">About Dr. Patrice</Link><Link to="/partnerships">Collaborate</Link></div>
+      <div><h3>Explore</h3><Link to="/journal">Journal</Link><Link to="/about">About Dr. Patrice</Link></div>
       <div><h3>Learn</h3><Link to="/the-climb">The Climb</Link><Link to="/the-climb-plus">The Climb+</Link><Link to="/side-hustle-blueprint">Side Hustle Blueprint</Link></div>
-      <div><h3>Shop</h3><Link to="/shop" search={{ collection: "digital" }}>Planners & E-Books</Link><Link to="/shop" search={{ collection: "apparel" }}>Apparel</Link><Link to="/contact" search={{ topic: "media-kit" }}>Media Kit Request</Link></div>
+      <div><h3>Shop</h3><Link to="/shop" search={{ collection: "apparel" }}>Apparel</Link></div>
+      <div><h3>Collaborate</h3><Link to="/partnerships">Strategic Partnerships</Link><Link to="/contact" search={{ topic: "media-kit" }}>Media Kit Request</Link><Link to="/contact" search={{ topic: "collaboration" }}>Work With Dr. Patrice</Link></div>
       <div><h3>Follow</h3><a href="https://www.instagram.com/theunorthodoc/" target="_blank" rel="noreferrer"><Instagram/> Instagram</a><span>Privacy Policy</span><span>Terms & Disclaimer</span></div>
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} The UnOrthoDoc</span><a href="https://www.infinityorthodc.com/" target="_blank" rel="noreferrer">Looking for orthodontic care in Washington, DC? Visit Infinity Orthodontics. <span aria-hidden>↗</span></a></div>

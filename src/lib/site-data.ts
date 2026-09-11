@@ -40,7 +40,6 @@ export const navGroups = [
     label: "Shop",
     hub: linkOptions({ to: "/shop" }),
     items: [
-      { label: "Planners & E-Books", link: linkOptions({ to: "/shop", search: { collection: "digital" as string } }) },
       { label: "Apparel", link: linkOptions({ to: "/shop", search: { collection: "apparel" as string } }) },
     ],
   },
@@ -59,7 +58,7 @@ export const paths = [
   { n: "01", title: "Read & Reflect", text: "The Journal, Sunday letters, and thoughtful essays on work and life.", to: "/journal" },
   { n: "02", title: "Build Something of Your Own", text: "A grounded framework for professionals creating more options.", to: "/side-hustle-blueprint" },
   { n: "03", title: "Go Deeper", text: "The Climb+ brings private audio, guided prompts, and live conversations.", to: "/the-climb-plus" },
-  { n: "04", title: "Explore Practical Resources", text: "E-books, planners, guides, and useful tools for real life.", to: "/shop" },
+  { n: "04", title: "Wear the Idea", text: "The UnOrthoDoc tee, for people building beyond one title.", to: "/shop" },
   { n: "05", title: "Partner With Dr. Patrice", text: "Thoughtful collaborations for brands serving modern professionals.", to: "/partnerships" },
 ] as const;
 
@@ -69,66 +68,76 @@ export const pillars = [
   { title: "Care Well", kicker: "Evidence meets ease", text: "Oral care, smile health, and trustworthy guidance from an orthodontist.", tone: "clay", topic: "oral-care-smile-health" },
 ] as const;
 
-/**
- * Editorial concept entries. These are clearly marked as concept pieces rather
- * than published articles until real titles are supplied.
- */
-export type Article = { id: string; topic: TopicSlug; pillar: string; title: string; excerpt: string; featured?: boolean };
+/** Published writing from The UnOrthoDoc blog. */
+export type Article = { id: string; topic: TopicSlug; pillar: string; date: string; title: string; excerpt: string; featured?: boolean };
 
 export const articles: readonly Article[] = [
   {
-    id: "beyond-one-title",
+    id: "growing-up-without-convenience",
     topic: "personal-development",
     pillar: "Live Well",
-    title: "A meaningful life is bigger than one title",
-    excerpt: "On ambition, identity, and giving every dimension of your life room to breathe.",
+    date: "September 3, 2026",
+    title: "What Growing Up Without Convenience Taught Me About Resilience, Gratitude, and Simplicity",
+    excerpt: "Sometimes, when everything isn’t immediately available, you develop an appreciation for things you might otherwise overlook.",
     featured: true,
   },
-  { id: "motherhood-and-ambition", topic: "motherhood", pillar: "Live Well", title: "Ambition, motherhood, and the space between", excerpt: "Notes on carrying two full lives at once without losing yourself in either." },
-  { id: "work-that-fits", topic: "professional-financial-growth", pillar: "Build Well", title: "Designing work that fits the life you want", excerpt: "A practical reflection for professionals building more options." },
-  { id: "first-side-hustle-step", topic: "side-hustle", pillar: "Build Well", title: "The quiet first step of a side hustle", excerpt: "Before the launch, the branding, or the website—there is one decision that matters." },
-  { id: "smile-health", topic: "oral-care-smile-health", pillar: "Care Well", title: "A considered approach to smile health", excerpt: "Clear, trustworthy guidance shaped by clinical experience." },
-  { id: "money-conversations", topic: "professional-financial-growth", pillar: "Build Well", title: "The money conversations professionals avoid", excerpt: "Financial growth is rarely about income alone." },
+  {
+    id: "philanthropic-get-rich",
+    topic: "professional-financial-growth",
+    pillar: "Build Well",
+    date: "September 2, 2026",
+    title: "The Most Philanthropic Thing You Can Do Is Get Rich",
+    excerpt: "Why building wealth can give you the capacity to do more good.",
+  },
+  {
+    id: "mouth-is-part-of-your-body",
+    topic: "oral-care-smile-health",
+    pillar: "Care Well",
+    date: "August 2026",
+    title: "Your Mouth Is Part of Your Body. So Why Do We Treat It Like It Isn’t?",
+    excerpt: "We’ve gotten really good at separating oral health from the rest of our health. Your mouth is not an island.",
+  },
+  {
+    id: "career-become-your-identity",
+    topic: "personal-development",
+    pillar: "Live Well",
+    date: "August 4, 2026",
+    title: "The Danger of Letting Your Career Become Your Identity",
+    excerpt: "Your career is something you build. Your identity is something you become.",
+  },
+  {
+    id: "sensitivity-toothpaste",
+    topic: "oral-care-smile-health",
+    pillar: "Care Well",
+    date: "July 1, 2026",
+    title: "Why Your Sensitivity Toothpaste Might Not Be Working",
+    excerpt: "Cold water hurts. Ice cream hurts. Here’s what most people miss about treating sensitive teeth.",
+  },
+  {
+    id: "life-that-doesnt-fit-a-category",
+    topic: "personal-development",
+    pillar: "Live Well",
+    date: "June 1, 2026",
+    title: "What Nobody Tells You About Building a Life That Doesn’t Fit a Category",
+    excerpt: "There is a particular kind of exhaustion that comes not from doing too much, but from explaining yourself too many times.",
+  },
 ];
+
+export const BLOG_URL = "https://www.theunorthodoc.com/blog";
+export const APPAREL_URL = "https://www.theunorthodoc.com/apparel";
 
 export const products = [
   {
-    slug: "side-hustle-guide",
-    collection: "digital",
-    kind: "Digital guide",
-    title: "Side Hustle Guide, Vol. 1",
-    coverKicker: "The UnOrthoDoc",
-    coverTitle: "Side Hustle\nGuide",
-    coverNote: "Volume One",
-    tone: "clay",
-    price: "$15",
-    status: "Join the waitlist",
-    text: "A focused starting point for turning what you know into an additional stream of income.",
-  },
-  {
-    slug: "intentional-week-planner",
-    collection: "digital",
-    kind: "Digital planner",
-    title: "The Intentional Week",
-    coverKicker: "A planning system",
-    coverTitle: "The\nIntentional\nWeek",
-    coverNote: "Undated · Printable",
-    tone: "blue",
-    price: "Price coming soon",
-    status: "Join the waitlist",
-    text: "A calm planning system for making space for work, life, and what matters most.",
-  },
-  {
-    slug: "unorthodox-notes",
+    slug: "triblend-unisex-tee",
     collection: "apparel",
-    kind: "Apparel concept",
-    title: "The UnOrthoDoc Edition",
-    coverKicker: "Apparel concept",
-    coverTitle: "Beyond\nOne Title",
-    coverNote: "Coming soon",
+    kind: "Apparel",
+    title: "Triblend Unisex Tee",
+    coverKicker: "The UnOrthoDoc",
+    coverTitle: "Contrary\nto what\nis usual",
+    coverNote: "Triblend Unisex Tee",
     tone: "rose",
-    price: "Coming soon",
-    status: "Coming soon",
-    text: "An understated apparel concept for people building beyond one title.",
+    price: "$29",
+    url: APPAREL_URL,
+    text: "Contrary to what is usual. Available in Vintage Red, Premium Heather, Military Green, Vintage Black, and Vintage Royal.",
   },
 ] as const;

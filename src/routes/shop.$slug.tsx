@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { WaitlistAction } from "@/components/forms";
-import { MobileStickyCta, PageHero, ProductCover } from "@/components/page-kit";
+import { ExternalCta } from "@/components/forms";
+import { MobileStickyCta, ProductCover } from "@/components/page-kit";
 import { products } from "@/lib/site-data";
 
 export const Route = createFileRoute("/shop/$slug")({
@@ -27,24 +27,24 @@ function Product() {
         <span className="eyebrow">{product.kind}</span>
         <h1>{product.title}</h1>
         <p>{product.text}</p>
-        <div className="hero-actions"><WaitlistAction label={product.status}/></div>
+        <div className="hero-actions"><ExternalCta href={product.url} label={`Shop the tee — ${product.price}`}/></div>
       </div>
       <ProductCover product={product} large/>
     </div></section>
     <section className="section"><div className="site-container course-layout">
       <div>
-        <span className="eyebrow">Made for real schedules</span>
-        <h2>A useful resource, without the overwhelm.</h2>
-        <p>This product page is ready for final photography, detailed contents, delivery information, and a live payment link.</p>
+        <span className="eyebrow">Wear it well</span>
+        <h2>Soft triblend, everyday fit.</h2>
+        <p>Available in Vintage Red, Premium Heather, Military Green, Vintage Black, and Vintage Royal. Wear it and tag @dr.unorthodoc.</p>
       </div>
       <div className="membership-card">
         <span className="eyebrow">Product details</span>
         <h3>{product.title}</h3>
         <div className="price">{product.price}</div>
-        <p>Checkout is not open yet. Join the waitlist and you’ll hear the moment it’s available—no card details are collected.</p>
-        <WaitlistAction label={product.status}/>
+        <p>Sizes and colours are selected at checkout on the UnOrthoDoc store.</p>
+        <ExternalCta href={product.url} label="Choose your size"/>
       </div>
     </div></section>
-    <MobileStickyCta label={product.status}/>
+    <MobileStickyCta label={`Shop the tee — ${product.price}`} href={product.url}/>
   </>;
 }
