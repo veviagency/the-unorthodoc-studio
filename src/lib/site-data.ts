@@ -291,4 +291,5 @@ export const productImages: Record<string, string> = {
   "side-hustle-workbook": coverSideHustleWorkbook,
   "social-media-planner": coverSocialPlanner,
   "creator-success-planner": coverCreatorPlanner,
+  "triblend-unisex-tee": coverTee,
 };
