@@ -191,3 +191,100 @@ html,body{overflow-x:clip}
 .product-photo{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;padding:1.2rem;margin-bottom:1.2rem;background:color-mix(in oklab,var(--muted) 60%,var(--background));border:1px solid var(--border);overflow:hidden}
 .product-photo img{width:100%;height:100%;object-fit:contain}
 .product-photo.large{aspect-ratio:3/4;padding:2rem}
+
+/* ---------- Mobile-first polish pass (390px primary) ---------- */
+@media(max-width:767px){
+  /* Vertical rhythm */
+  .section{padding:3.5rem 0}
+  .hero{padding:1.5rem 0 1.5rem}
+  .hero-grid,.page-hero-grid{gap:1.75rem}
+  .page-hero{padding:2.75rem 0}
+  .compact-hero,.journal-hero,.offer-hero,.product-hero{padding:2.5rem 0}
+  .membership-layout,.course-layout,.collab-layout,.about-layout,.contact-layout,.about-editorial{gap:1.75rem}
+  .site-footer{padding:3rem 0 1.25rem}
+  .footer-lead{padding-bottom:2rem}
+  .footer-grid{padding:2rem 0;gap:1.5rem}
+
+  /* Type scale + line breaks */
+  h1{font-size:clamp(2.3rem,9.4vw,3.05rem);line-height:1.04;margin:.2rem 0 1.05rem}
+  h2{font-size:clamp(1.85rem,7.4vw,2.45rem);line-height:1.06}
+  h3{font-size:1.35rem;line-height:1.18}
+  .hero-copy>p,.page-hero p{font-size:1rem}
+  .section-heading{gap:.6rem;margin-bottom:1.75rem}
+  .eyebrow{font-size:.68rem;margin-bottom:.55rem}
+
+  /* One-handed CTAs */
+  .hero-actions{gap:.6rem;margin-top:1.3rem}
+  .hero-actions>*,.offer-card a,.offer-card button,.membership-card a,.membership-card button{width:100%}
+  .definition-callout{margin-top:1.5rem;max-width:none}
+
+  /* Menu */
+  .mobile-nav{max-height:calc(100dvh - 122px);overflow-y:auto}
+
+  /* Path cards */
+  .path-card{grid-template-columns:32px minmax(0,1fr) 18px;padding:1.15rem 0;gap:.55rem}
+  .path-card h3{font-size:1.3rem;margin-bottom:.35rem}
+  .path-card p{font-size:.9rem}
+
+  /* Journal */
+  .journal-feature{padding:1.4rem}
+  .journal-feature h2{font-size:1.5rem;line-height:1.15}
+  .journal-feature p{font-size:.92rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .topic-filter{gap:.45rem;margin-bottom:1.75rem}
+  .topic-filter a{padding:.35rem .85rem;font-size:.78rem}
+  .editorial-row{padding:1.15rem 0;gap:.35rem}
+  .editorial-row h3{font-size:1.3rem}
+  .editorial-row p{font-size:.92rem}
+  .pillar-card{min-height:auto;padding:1.4rem}
+  .pillar-card h3{font-size:1.5rem}
+  .pillar-card p{font-size:.92rem}
+  .quote-block{padding:2rem 0}
+
+  /* Product rhythm: one lead card, then a two-up grid */
+  .product-grid{grid-template-columns:1fr 1fr;gap:1.4rem .9rem}
+  .product-grid>:first-child:nth-last-child(n+3){grid-column:1/-1}
+  .product-photo,.product-cover{aspect-ratio:1/1;padding:.6rem;margin-bottom:.7rem}
+  .product-cover{padding:1rem}
+  .product-grid>:first-child:nth-last-child(n+3) .product-photo{aspect-ratio:4/5;padding:1rem}
+  .product-grid>:first-child:nth-last-child(n+3) .product-cover{aspect-ratio:4/5;padding:1.4rem}
+  .product-grid>:first-child:nth-last-child(n+3) h3{font-size:1.5rem}
+  .product-grid>:first-child:nth-last-child(n+3) p{font-size:.95rem}
+  .product-card h3{font-size:1.08rem;line-height:1.22;margin:.3rem 0}
+  .product-card p{font-size:.84rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .product-card>span:first-of-type{font-size:.6rem;color:var(--clay)}
+  .product-card .price{padding-top:.55rem;font-size:.92rem}
+  .product-cta{margin-top:.45rem;font-size:.74rem}
+  .product-cover .cover-title{font-size:1.35rem}
+  .product-grid>:first-child:nth-last-child(n+3) .cover-title{font-size:2rem}
+  .product-photo.large{aspect-ratio:1/1;padding:.9rem}
+
+  /* Offers */
+  .offer-card{padding:1.4rem}
+  .offer-card .price{font-size:2.8rem}
+  .offer-card .price-alt{margin:.35rem 0 1rem}
+  .membership-card{padding:1.5rem}
+  .membership-card h3{margin:.15rem 0 .6rem}
+  .membership-card .price{font-size:2.6rem}
+  .feature-list{gap:.7rem;margin:1.2rem 0}
+  .feature-list li{align-items:flex-start}
+  .feature-list svg{margin-top:.3rem}
+  .course-module{grid-template-columns:30px 1fr;gap:.6rem;padding:1.15rem 0}
+  .course-module h3{font-size:1.25rem}
+  .course-module p{font-size:.92rem;margin:0}
+
+  /* Forms */
+  .newsletter-form input,.contact-form input,.contact-form select,.contact-form textarea{min-height:52px;font-size:16px}
+  .newsletter-form button,.contact-form button{width:100%;min-height:52px}
+  .section-ink .newsletter-form button{background:var(--ivory)!important;color:var(--ink)!important}
+  .contact-layout p+p{margin-top:.9rem}
+  .contact-success{padding:1.75rem}
+  .contact-success h2{font-size:2rem}
+
+  /* Sticky checkout bar */
+  .mobile-sticky{padding:.65rem 20px calc(.65rem + env(safe-area-inset-bottom));box-shadow:0 -12px 30px color-mix(in oklab,var(--ink) 12%,transparent)}
+  body:has(.mobile-sticky) .site-footer{padding-bottom:calc(1.25rem + 110px)}
+
+  /* Tap feedback */
+  .pillar-card:active,.pillar-chip:active,.topic-filter a:active,.editorial-row:active,.journal-feature:active{background:color-mix(in oklab,var(--ink) 6%,transparent)}
+}
+

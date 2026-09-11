@@ -19,12 +19,12 @@ export function FeatureList({ items }: { items: readonly string[] }) {
 }
 
 export function MobileStickyCta({ label, href, to = "/the-climb", checkoutUrl }: { label: string; href?: string; to?: "/the-climb" | "/contact" | "/shop"; checkoutUrl?: string | null }) {
-  if (checkoutUrl !== undefined) {
-    return <div className="mobile-sticky"><CheckoutButton label={label} url={checkoutUrl} className="w-full"/></div>;
-  }
-  return <div className="mobile-sticky">{href
-    ? <Button asChild variant="editorial" className="w-full"><a href={href} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>
-    : <Button asChild variant="editorial" className="w-full"><Link to={to}>{label}<ArrowRight/></Link></Button>}</div>;
+  const bar = checkoutUrl !== undefined
+    ? <div className="mobile-sticky"><CheckoutButton label={label} url={checkoutUrl} className="w-full"/></div>
+    : <div className="mobile-sticky">{href
+        ? <Button asChild variant="editorial" className="w-full"><a href={href} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>
+        : <Button asChild variant="editorial" className="w-full"><Link to={to}>{label}<ArrowRight/></Link></Button>}</div>;
+  return bar;
 }
 
 /** Checkout CTA: links to the live checkout when connected, otherwise an inert integration-ready state. */
