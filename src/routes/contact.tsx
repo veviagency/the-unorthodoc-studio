@@ -1,5 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactForm } from "@/components/forms";
 import { PageHero } from "@/components/page-kit";
-export const Route=createFileRoute("/contact")({head:()=>({meta:[{title:"Media Kit & Contact — The UnOrthoDoc"},{name:"description",content:"Contact The UnOrthoDoc about strategic partnerships, speaking, media, and aligned brand opportunities."},{property:"og:title",content:"Work With Dr. Patrice Smith"},{property:"og:description",content:"Start a conversation about a thoughtful brand, media, or strategic collaboration."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:Contact});
-function Contact(){return <><PageHero eyebrow="Media kit & inquiries" title="Tell us what you’re building." intro="For thoughtful brand partnerships, speaking, media, and strategic collaborations, share a little about the opportunity below."/><section className="section"><div className="site-container contact-layout"><div><span className="eyebrow">A helpful note</span><h2>Good context makes for a better conversation.</h2><p>Include your organization, the idea, intended audience, timeline, and why Dr. Patrice feels like the right fit.</p><p>This form is not monitored for orthodontic care. For clinical inquiries, please visit Infinity Orthodontics.</p></div><ContactForm/></div></section></>}
+
+export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>): { topic?: string } =>
+    typeof search['topic'] === "string" ? { topic: search['topic'] as string } : {},
+  head: () => ({ meta: [
+    { title: "Media Kit & Contact — The UnOrthoDoc" },
+    { name: "description", content: "Contact The UnOrthoDoc about strategic partnerships, speaking, media, and aligned brand opportunities." },
+    { property: "og:title", content: "Work With Dr. Patrice Smith" },
+    { property: "og:description", content: "Start a conversation about a thoughtful brand, media, or strategic collaboration." },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
+  ]}),
+  component: Contact,
+});
+
+const intros = {
+  "media-kit": { eyebrow: "Media kit request", title: "Request the media kit.", intro: "Share where you’re working and we’ll send the audience overview, collaboration formats, and past context." },
+  collaboration: { eyebrow: "Work with Dr. Patrice", title: "Let’s talk about working together.", intro: "Speaking, brand work, advisory, and editorial collaborations start with a short note about the opportunity." },
+} as const;
+
+function Contact() {
+  const { topic } = Route.useSearch();
+  const copy = (topic === "media-kit" || topic === "collaboration")
+    ? intros[topic]
+    : { eyebrow: "Media kit & inquiries", title: "Tell us what you’re building.", intro: "For thoughtful brand partnerships, speaking, media, and strategic collaborations, share a little about the opportunity below." };
+
+  return <>
+    <PageHero eyebrow={copy.eyebrow} title={copy.title} intro={copy.intro} compact/>
+    <section className="section"><div className="site-container contact-layout">
+      <div>
+        <span className="eyebrow">A helpful note</span>
+        <h2>Good context makes for a better conversation.</h2>
+        <p>Include your organization, the idea, intended audience, timeline, and why Dr. Patrice feels like the right fit.</p>
+        <p>This form is not monitored for orthodontic care. For clinical inquiries, please visit Infinity Orthodontics.</p>
+      </div>
+      <ContactForm defaultTopic={topic}/>
+    </div></section>
+  </>;
+}
