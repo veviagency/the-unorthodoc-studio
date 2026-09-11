@@ -41,7 +41,7 @@ function Journal() {
       <div className="site-container">
         <nav className="topic-filter" aria-label="Filter by topic">
           <Link to="/journal" search={{}} data-active={!active ? "true" : undefined}>All writing</Link>
-          {journalTopics.map((t) => (
+          {activeJournalTopics.map((t) => (
             <Link key={t.slug} to="/journal" search={{ topic: t.slug as string }} data-active={active?.slug === t.slug ? "true" : undefined}>{t.label}</Link>
           ))}
         </nav>
