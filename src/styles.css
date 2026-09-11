@@ -134,3 +134,6 @@ html,body{overflow-x:clip}
 .featured-editorial:before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(115deg,color-mix(in oklab,var(--primary-foreground) 7%,transparent) 0 1px,transparent 1px 26px);pointer-events:none}
 .featured-editorial .featured-inner{background:linear-gradient(180deg,transparent 0%,color-mix(in oklab,var(--ink) 55%,transparent) 100%)}
 .featured-editorial .featured-inner:before{content:"”";position:absolute;top:-1.2rem;right:1rem;font:400 16rem/1 var(--font-display);color:color-mix(in oklab,var(--primary-foreground) 9%,transparent);pointer-events:none}
+.product-cover .cover-title{font-size:clamp(1.8rem,3.6vw,2.6rem);text-transform:none;letter-spacing:-.01em;line-height:1.05;font-family:var(--font-display)}
+.product-cover.large .cover-title{font-size:clamp(2.4rem,4.4vw,3.4rem)}
+.product-cover .cover-kicker,.product-cover .cover-note{font-size:.6rem;letter-spacing:.2em}
