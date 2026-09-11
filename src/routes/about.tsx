@@ -18,9 +18,9 @@ export const Route = createFileRoute("/about")({
 function About() {
   return <>
     <PageHero portraitImage portraitSrc={portraitRed} portraitAlt="Dr. Patrice Smith in a red blazer" eyebrow="Meet Dr. Patrice" title="A full life was never going to fit in one box." intro="I’m Patrice—an orthodontist, writer, wife, mother of three, and the person behind The UnOrthoDoc."/>
-    <section className="section"><div className="site-container about-layout about-editorial">
-      <div>
-        <SectionHeading eyebrow="The story" title="Beyond the labels."/>
+    <section className="section"><div className="site-container about-editorial">
+      <div className="about-head"><SectionHeading eyebrow="The story" title="Beyond the labels."/></div>
+      <div className="about-side">
         <div className="about-quote">The UnOrthoDoc is a reflection of a multifaceted life.</div>
         <DefinitionCallout/>
       </div>
