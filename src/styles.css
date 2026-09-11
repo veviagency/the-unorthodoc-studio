@@ -139,8 +139,7 @@ html,body{overflow-x:clip}
 .product-cover .cover-title span{font:inherit;text-transform:none;letter-spacing:inherit;display:block}
 @media(min-width:768px){.nav-dropdown[hidden]{visibility:hidden}}
 @media(max-width:767px){
-  .featured-article{background-image:none}
-  .featured-article .featured-inner{min-height:auto;padding:1.6rem 1.4rem 1.8rem;background:none}
+  .featured-article .featured-inner{min-height:auto;padding:1.7rem 1.4rem 1.9rem}
   .featured-editorial .featured-inner:before{font-size:9rem;top:-.6rem;right:.4rem}
   .featured-layout{gap:1.5rem}
   .article-list{display:grid}
