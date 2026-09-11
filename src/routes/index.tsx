@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterForm } from "@/components/forms";
 import { DefinitionCallout, FeatureList, ProductCover, SectionHeading } from "@/components/page-kit";
-import { articles, paths, pillars, products } from "@/lib/site-data";
+import { articles, paths, products } from "@/lib/site-data";
 import portrait from "@/assets/dr-patrice.webp";
 
 export const Route = createFileRoute("/")({
