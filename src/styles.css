@@ -24,6 +24,10 @@ a.bg-background,button.bg-background{color:var(--foreground)}
 /* ---------- V2 refinement pass ---------- */
 html,body{overflow-x:clip}
 .text-link{border-bottom:1px solid;font-weight:600}
+.quiet-callout{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;color:var(--muted-foreground);font-size:1rem;margin:0}
+.quiet-callout p{margin:0;max-width:640px}
+.quiet-callout .text-link{display:inline-flex;align-items:center;gap:.3rem;color:var(--foreground)}
+.quiet-callout svg{width:15px}
 .empty-note{color:var(--muted-foreground)}
 
 /* Navigation */
