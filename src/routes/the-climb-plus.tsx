@@ -1,6 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { createFileRoute } from "@tanstack/react-router";
 import { CheckoutButton, FeatureList, MobileStickyCta } from "@/components/page-kit";
 import { MEMBERSHIP_CHECKOUT_URL } from "@/lib/site-data";
 
