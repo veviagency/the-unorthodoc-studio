@@ -141,61 +141,6 @@ export const pillars = [
   { title: "Care Well", kicker: "Evidence meets ease", text: "Oral care, smile health, and trustworthy guidance from an orthodontist.", tone: "clay", topic: "oral-care-smile-health" },
 ] as const;
 
-/** Published writing from The UnOrthoDoc blog. */
-export type Article = { id: string; topic: TopicSlug; pillar: string; date: string; title: string; excerpt: string; featured?: boolean };
-
-export const articles: readonly Article[] = [
-  {
-    id: "growing-up-without-convenience",
-    topic: "personal-development",
-    pillar: "Live Well",
-    date: "September 3, 2026",
-    title: "What Growing Up Without Convenience Taught Me About Resilience, Gratitude, and Simplicity",
-    excerpt: "Sometimes, when everything isn’t immediately available, you develop an appreciation for things you might otherwise overlook.",
-    featured: true,
-  },
-  {
-    id: "philanthropic-get-rich",
-    topic: "professional-financial-growth",
-    pillar: "Build Well",
-    date: "September 2, 2026",
-    title: "The Most Philanthropic Thing You Can Do Is Get Rich",
-    excerpt: "Why building wealth can give you the capacity to do more good.",
-  },
-  {
-    id: "mouth-is-part-of-your-body",
-    topic: "oral-care-smile-health",
-    pillar: "Care Well",
-    date: "August 2026",
-    title: "Your Mouth Is Part of Your Body. So Why Do We Treat It Like It Isn’t?",
-    excerpt: "We’ve gotten really good at separating oral health from the rest of our health. Your mouth is not an island.",
-  },
-  {
-    id: "career-become-your-identity",
-    topic: "personal-development",
-    pillar: "Live Well",
-    date: "August 4, 2026",
-    title: "The Danger of Letting Your Career Become Your Identity",
-    excerpt: "Your career is something you build. Your identity is something you become.",
-  },
-  {
-    id: "sensitivity-toothpaste",
-    topic: "oral-care-smile-health",
-    pillar: "Care Well",
-    date: "July 1, 2026",
-    title: "Why Your Sensitivity Toothpaste Might Not Be Working",
-    excerpt: "Cold water hurts. Ice cream hurts. Here’s what most people miss about treating sensitive teeth.",
-  },
-  {
-    id: "life-that-doesnt-fit-a-category",
-    topic: "personal-development",
-    pillar: "Live Well",
-    date: "June 1, 2026",
-    title: "What Nobody Tells You About Building a Life That Doesn’t Fit a Category",
-    excerpt: "There is a particular kind of exhaustion that comes not from doing too much, but from explaining yourself too many times.",
-  },
-];
-
 export const BLOG_URL = "https://www.theunorthodoc.com/blog";
 export const APPAREL_URL = "https://www.theunorthodoc.com/apparel";
 export const DIGITAL_URL = "https://www.theunorthodoc.com/planners-ebooks";

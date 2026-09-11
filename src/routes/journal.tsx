@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/page-kit";
-import { articles, journalTopics, pillars } from "@/lib/site-data";
+import { activeJournalTopics, articles, journalTopics, pillars } from "@/lib/site-data";
 
 export const Route = createFileRoute("/journal")({
   validateSearch: (search: Record<string, unknown>): { topic?: string } =>
