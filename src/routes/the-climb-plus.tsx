@@ -1,7 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { FeatureList, MobileStickyCta } from "@/components/page-kit";
+import { createFileRoute } from "@tanstack/react-router";
+import { CheckoutButton, FeatureList, MobileStickyCta } from "@/components/page-kit";
+import { MEMBERSHIP_CHECKOUT_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/the-climb-plus")({
   head: () => ({ meta: [
@@ -33,7 +32,7 @@ function Plus() {
       <div className="offer-card">
         <div className="price-row"><span className="price">$19</span><span>/month</span></div>
         <p className="price-alt">or $179 a year</p>
-        <Button asChild size="lg" variant="editorial"><Link to="/contact" search={{ topic: "collaboration" }}>Join The Climb+ <ArrowRight/></Link></Button>
+        <CheckoutButton label="Join The Climb+" url={MEMBERSHIP_CHECKOUT_URL} size="lg"/>
         <p className="price-note">Cancel any time.</p>
       </div>
     </div></section>
@@ -48,9 +47,9 @@ function Plus() {
         <span className="eyebrow">What it costs</span>
         <h3>$19 a month, or $179 a year.</h3>
         <p>Annual membership works out to just under $15 a month and includes everything in the monthly plan.</p>
-        <Button asChild size="lg" variant="inverse"><Link to="/contact" search={{ topic: "collaboration" }}>Join The Climb+ <ArrowRight/></Link></Button>
+        <CheckoutButton label="Join The Climb+" url={MEMBERSHIP_CHECKOUT_URL} size="lg" variant="inverse"/>
       </div>
     </div></section>
-    <MobileStickyCta label="Join The Climb+ — $19/month" to="/contact"/>
+    <MobileStickyCta label="Join The Climb+ — $19/month" checkoutUrl={MEMBERSHIP_CHECKOUT_URL}/>
   </>;
 }

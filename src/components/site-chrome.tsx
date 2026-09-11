@@ -44,6 +44,7 @@ function DesktopNavGroup({
         aria-label={`${group.label} menu`}
         onClick={onToggle}
         onKeyDown={(e) => {
+          // preventDefault suppresses the native button click, so toggle runs exactly once.
           if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
             e.preventDefault();
             onToggle();
