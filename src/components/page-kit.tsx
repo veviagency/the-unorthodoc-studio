@@ -18,10 +18,10 @@ export function FeatureList({ items }: { items: readonly string[] }) {
   return <ul className="feature-list">{items.map(item => <li key={item}><Check/>{item}</li>)}</ul>;
 }
 
-export function MobileStickyCta({ label, href, onClick }: { label: string; href?: string; onClick?: () => void }) {
+export function MobileStickyCta({ label, href, to = "/the-climb" }: { label: string; href?: string; to?: "/the-climb" | "/contact" | "/shop" }) {
   return <div className="mobile-sticky">{href
     ? <Button asChild variant="editorial" className="w-full"><a href={href} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>
-    : <Button variant="editorial" className="w-full" onClick={onClick}>{label}<ArrowRight/></Button>}</div>;
+    : <Button asChild variant="editorial" className="w-full"><Link to={to}>{label}<ArrowRight/></Link></Button>}</div>;
 }
 
 /** Typographic cover treatment for shop items. */
