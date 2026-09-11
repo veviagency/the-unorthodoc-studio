@@ -29,60 +29,6 @@ export const journalTopics = [
 
 export type TopicSlug = (typeof journalTopics)[number]["slug"];
 
-export const navGroups = [
-  {
-    label: "Read",
-    hub: linkOptions({ to: "/journal" }),
-    items: [
-      { label: "The Journal", link: linkOptions({ to: "/journal" }) },
-      ...journalTopics.map((topic) => ({
-        label: topic.label,
-        link: linkOptions({ to: "/journal", search: { topic: topic.slug as string } }),
-      })),
-    ],
-  },
-  {
-    label: "Learn",
-    hub: linkOptions({ to: "/the-climb-plus" }),
-    items: [
-      { label: "The Climb+", link: linkOptions({ to: "/the-climb-plus" }) },
-      { label: "The Side Hustle Blueprint", link: linkOptions({ to: "/side-hustle-blueprint" }) },
-    ],
-  },
-  {
-    label: "Shop",
-    hub: linkOptions({ to: "/shop" }),
-    items: [
-      { label: "Planners & E-Books", link: linkOptions({ to: "/shop", search: { collection: "digital" as string } }) },
-      { label: "Apparel", link: linkOptions({ to: "/shop", search: { collection: "apparel" as string } }) },
-    ],
-  },
-
-  {
-    label: "Collaborate",
-    hub: linkOptions({ to: "/partnerships" }),
-    items: [
-      { label: "Strategic Partnerships", link: linkOptions({ to: "/partnerships" }) },
-      { label: "Media Kit Request", link: linkOptions({ to: "/contact", search: { topic: "media-kit" as string } }) },
-      { label: "Work With Dr. Patrice", link: linkOptions({ to: "/contact", search: { topic: "collaboration" as string } }) },
-    ],
-  },
-];
-
-export const paths = [
-  { n: "01", title: "Read & Reflect", text: "The Journal, Sunday letters, and thoughtful essays on work and life.", to: "/journal" },
-  { n: "02", title: "Build Something of Your Own", text: "A grounded framework for professionals creating more options.", to: "/side-hustle-blueprint" },
-  { n: "03", title: "Go Deeper", text: "The Climb+ brings private audio, guided prompts, and live conversations.", to: "/the-climb-plus" },
-  { n: "04", title: "Practical Resources", text: "Planners, e-books, and workbooks I use myself—plus the UnOrthoDoc tee.", to: "/shop" },
-  { n: "05", title: "Partner With Dr. Patrice", text: "Thoughtful collaborations for brands serving modern professionals.", to: "/partnerships" },
-] as const;
-
-export const pillars = [
-  { title: "Live Well", kicker: "Life, in full", text: "Personal growth, motherhood, identity, and meaningful living.", tone: "rose", topic: "personal-development" },
-  { title: "Build Well", kicker: "Make room for more", text: "Career, entrepreneurship, financial growth, and side hustles.", tone: "blue", topic: "professional-financial-growth" },
-  { title: "Care Well", kicker: "Evidence meets ease", text: "Oral care, smile health, and trustworthy guidance from an orthodontist.", tone: "clay", topic: "oral-care-smile-health" },
-] as const;
-
 /** Published writing from The UnOrthoDoc blog. */
 export type Article = { id: string; topic: TopicSlug; pillar: string; date: string; title: string; excerpt: string; featured?: boolean };
 
@@ -137,6 +83,63 @@ export const articles: readonly Article[] = [
     excerpt: "There is a particular kind of exhaustion that comes not from doing too much, but from explaining yourself too many times.",
   },
 ];
+
+/** Topics with at least one published article — nav and filters show only these. */
+export const activeJournalTopics = journalTopics.filter((t) => articles.some((a) => a.topic === t.slug));
+
+export const navGroups = [
+  {
+    label: "Read",
+    hub: linkOptions({ to: "/journal" }),
+    items: [
+      { label: "The Journal", link: linkOptions({ to: "/journal" }) },
+      ...activeJournalTopics.map((topic) => ({
+        label: topic.label,
+        link: linkOptions({ to: "/journal", search: { topic: topic.slug as string } }),
+      })),
+    ],
+  },
+  {
+    label: "Learn",
+    hub: linkOptions({ to: "/the-climb-plus" }),
+    items: [
+      { label: "The Climb+", link: linkOptions({ to: "/the-climb-plus" }) },
+      { label: "The Side Hustle Blueprint", link: linkOptions({ to: "/side-hustle-blueprint" }) },
+    ],
+  },
+  {
+    label: "Shop",
+    hub: linkOptions({ to: "/shop" }),
+    items: [
+      { label: "Planners & E-Books", link: linkOptions({ to: "/shop", search: { collection: "digital" as string } }) },
+      { label: "Apparel", link: linkOptions({ to: "/shop", search: { collection: "apparel" as string } }) },
+    ],
+  },
+
+  {
+    label: "Collaborate",
+    hub: linkOptions({ to: "/partnerships" }),
+    items: [
+      { label: "Strategic Partnerships", link: linkOptions({ to: "/partnerships" }) },
+      { label: "Media Kit Request", link: linkOptions({ to: "/contact", search: { topic: "media-kit" as string } }) },
+      { label: "Work With Dr. Patrice", link: linkOptions({ to: "/contact", search: { topic: "collaboration" as string } }) },
+    ],
+  },
+];
+
+export const paths = [
+  { n: "01", title: "Read & Reflect", text: "The Journal, Sunday letters, and thoughtful essays on work and life.", to: "/journal" },
+  { n: "02", title: "Build Something of Your Own", text: "A grounded framework for professionals creating more options.", to: "/side-hustle-blueprint" },
+  { n: "03", title: "Go Deeper", text: "The Climb+ brings private audio, guided prompts, and live conversations.", to: "/the-climb-plus" },
+  { n: "04", title: "Practical Resources", text: "Planners, e-books, and workbooks I use myself—plus the UnOrthoDoc tee.", to: "/shop" },
+  { n: "05", title: "Partner With Dr. Patrice", text: "Thoughtful collaborations for brands serving modern professionals.", to: "/partnerships" },
+] as const;
+
+export const pillars = [
+  { title: "Live Well", kicker: "Life, in full", text: "Personal growth, motherhood, identity, and meaningful living.", tone: "rose", topic: "personal-development" },
+  { title: "Build Well", kicker: "Make room for more", text: "Career, entrepreneurship, financial growth, and side hustles.", tone: "blue", topic: "professional-financial-growth" },
+  { title: "Care Well", kicker: "Evidence meets ease", text: "Oral care, smile health, and trustworthy guidance from an orthodontist.", tone: "clay", topic: "oral-care-smile-health" },
+] as const;
 
 export const BLOG_URL = "https://www.theunorthodoc.com/blog";
 export const APPAREL_URL = "https://www.theunorthodoc.com/apparel";
