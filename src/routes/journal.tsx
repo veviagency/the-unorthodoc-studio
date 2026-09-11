@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/page-kit";
 import { activeJournalTopics, articles, journalTopics } from "@/lib/site-data";
 
@@ -19,22 +18,13 @@ export const Route = createFileRoute("/journal")({
 function Journal() {
   const { topic } = Route.useSearch();
   const active = journalTopics.find((t) => t.slug === topic);
-  const featured = articles.find((a) => a.featured)!;
-  const list = active ? articles.filter((a) => a.topic === active.slug) : articles.filter((a) => !a.featured);
+  const list = active ? articles.filter((a) => a.topic === active.slug) : articles;
 
   return <>
     <section className="page-hero journal-hero"><div className="site-container journal-hero-grid">
-      <div>
-        <span className="eyebrow">The Journal</span>
-        <h1>Thoughtful ideas for a life in progress.</h1>
-        <p>Essays and reflections on the questions that rarely fit inside one professional title.</p>
-      </div>
-      <Link to="/journal" search={{ topic: featured.topic as string }} className="journal-feature">
-        <span className="eyebrow">Featured · {featured.date}</span>
-        <h2>{featured.title}</h2>
-        <p>{featured.excerpt}</p>
-        <span className="journal-feature-cta">Explore {featured.pillar} <ArrowRight/></span>
-      </Link>
+      <span className="eyebrow">The Journal</span>
+      <h1>Thoughtful ideas for a life in progress.</h1>
+      <p>Essays and reflections on the questions that rarely fit inside one professional title.</p>
     </div></section>
 
     <section className="section">
@@ -54,11 +44,17 @@ function Journal() {
         {list.length === 0
           ? <p className="empty-note">There are no posts under this topic yet. <Link className="text-link" to="/journal" search={{}}>View all writing</Link></p>
           : <div className="editorial-list">{list.map((a) => (
-              <article className="editorial-row" key={a.id}>
+              <Link
+                key={a.id}
+                to="/journal"
+                search={{ topic: a.topic as string }}
+                resetScroll={false}
+                className="editorial-row"
+              >
                 <span className="eyebrow">{a.pillar} · {a.date}</span>
                 <h3>{a.title}</h3>
                 <p>{a.excerpt}</p>
-              </article>
+              </Link>
             ))}</div>}
       </div>
     </section>
