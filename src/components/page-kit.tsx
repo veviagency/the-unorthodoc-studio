@@ -34,3 +34,14 @@ export function ProductCover({ product, large = false }: { product: (typeof prod
     </div>
   );
 }
+
+/** Small dictionary-style brand callout. */
+export function DefinitionCallout() {
+  return (
+    <aside className="definition-callout">
+      <span className="definition-word">un·ortho·doc</span>
+      <span className="definition-say">/ˌən-ˈȯr-thə-ˌdäk/ · noun</span>
+      <p>A doctor who does it a little differently—honoring the calling, and still building a life beyond the title.</p>
+    </aside>
+  );
+}

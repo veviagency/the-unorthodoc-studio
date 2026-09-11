@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FeatureList, MobileStickyCta, PageHero } from "@/components/page-kit";
+import { FeatureList, MobileStickyCta } from "@/components/page-kit";
 
 export const Route = createFileRoute("/the-climb-plus")({
   head: () => ({ meta: [
-    { title: "The Climb+ Membership — The UnOrthoDoc" },
-    { name: "description", content: "A deeper membership space for conversations around ambition, entrepreneurship, motherhood, and a life that fits." },
+    { title: "The Climb+ Membership — $19/month — The UnOrthoDoc" },
+    { name: "description", content: "The Climb+ is $19 a month or $179 a year: deeper reflections, private audio, guided prompts, resources, and live conversations." },
     { property: "og:title", content: "The Climb+ Membership" },
-    { property: "og:description", content: "Deeper reflections, private audio, guided prompts, resources, and live conversations." },
+    { property: "og:description", content: "$19/month or $179/year for deeper reflections, private audio, prompts, and live conversations." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}),
   component: Plus,
@@ -24,7 +24,19 @@ const benefits = [
 
 function Plus() {
   return <>
-    <PageHero eyebrow="The Climb+" title="For the conversations that need more room." intro="A quieter space for deeper conversations around ambition, entrepreneurship, motherhood, and building a life that actually fits."/>
+    <section className="page-hero compact-hero offer-hero"><div className="site-container offer-grid">
+      <div>
+        <span className="eyebrow">The Climb+</span>
+        <h1>For the conversations that need more room.</h1>
+        <p>A quieter space for ambition, entrepreneurship, motherhood, and building a life that actually fits.</p>
+      </div>
+      <div className="offer-card">
+        <div className="price-row"><span className="price">$19</span><span>/month</span></div>
+        <p className="price-alt">or $179 a year</p>
+        <Button asChild size="lg" variant="editorial"><Link to="/contact" search={{ topic: "collaboration" }}>Join The Climb+ <ArrowRight/></Link></Button>
+        <p className="price-note">Cancel any time.</p>
+      </div>
+    </div></section>
     <section className="section section-ink"><div className="site-container membership-layout">
       <div>
         <span className="eyebrow">The member experience</span>
@@ -33,12 +45,12 @@ function Plus() {
         <FeatureList items={benefits}/>
       </div>
       <div className="membership-card">
-        <span className="eyebrow">Start with the letter</span>
-        <h3>The Climb, every Sunday.</h3>
-        <p>Membership details are shared with readers of The Climb first. Join the Sunday letter and you’ll hear about The Climb+ directly from Dr. Patrice.</p>
-        <Button asChild size="lg" variant="inverse"><Link to="/the-climb">Join The Climb <ArrowRight/></Link></Button>
+        <span className="eyebrow">What it costs</span>
+        <h3>$19 a month, or $179 a year.</h3>
+        <p>Annual membership works out to just under $15 a month and includes everything in the monthly plan.</p>
+        <Button asChild size="lg" variant="inverse"><Link to="/contact" search={{ topic: "collaboration" }}>Join The Climb+ <ArrowRight/></Link></Button>
       </div>
     </div></section>
-    <MobileStickyCta label="Join The Climb"/>
+    <MobileStickyCta label="Join The Climb+ — $19/month" to="/contact"/>
   </>;
 }
