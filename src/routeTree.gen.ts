@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as SideHustleBlueprintRouteImport } from './routes/side-hustle-blueprint'
+import { Route as TheClimbRouteImport } from './routes/the-climb'
+import { Route as TheClimbPlusRouteImport } from './routes/the-climb-plus'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SideHustleBlueprintRoute = SideHustleBlueprintRouteImport.update({
+  id: '/side-hustle-blueprint',
+  path: '/side-hustle-blueprint',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheClimbRoute = TheClimbRouteImport.update({
+  id: '/the-climb',
+  path: '/the-climb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheClimbPlusRoute = TheClimbPlusRouteImport.update({
+  id: '/the-climb-plus',
+  path: '/the-climb-plus',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/journal': typeof JournalRoute
+  '/side-hustle-blueprint': typeof SideHustleBlueprintRoute
+  '/the-climb': typeof TheClimbRoute
+  '/the-climb-plus': typeof TheClimbPlusRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/journal': typeof JournalRoute
+  '/side-hustle-blueprint': typeof SideHustleBlueprintRoute
+  '/the-climb': typeof TheClimbRoute
+  '/the-climb-plus': typeof TheClimbPlusRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/journal': typeof JournalRoute
+  '/side-hustle-blueprint': typeof SideHustleBlueprintRoute
+  '/the-climb': typeof TheClimbRoute
+  '/the-climb-plus': typeof TheClimbPlusRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/journal'
+    | '/side-hustle-blueprint'
+    | '/the-climb'
+    | '/the-climb-plus'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/journal'
+    | '/side-hustle-blueprint'
+    | '/the-climb'
+    | '/the-climb-plus'
+  id:
+    | '__root__'
+    | '/'
+    | '/journal'
+    | '/side-hustle-blueprint'
+    | '/the-climb'
+    | '/the-climb-plus'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  JournalRoute: typeof JournalRoute
+  SideHustleBlueprintRoute: typeof SideHustleBlueprintRoute
+  TheClimbRoute: typeof TheClimbRoute
+  TheClimbPlusRoute: typeof TheClimbPlusRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/side-hustle-blueprint': {
+      id: '/side-hustle-blueprint'
+      path: '/side-hustle-blueprint'
+      fullPath: '/side-hustle-blueprint'
+      preLoaderRoute: typeof SideHustleBlueprintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-climb': {
+      id: '/the-climb'
+      path: '/the-climb'
+      fullPath: '/the-climb'
+      preLoaderRoute: typeof TheClimbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-climb-plus': {
+      id: '/the-climb-plus'
+      path: '/the-climb-plus'
+      fullPath: '/the-climb-plus'
+      preLoaderRoute: typeof TheClimbPlusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  JournalRoute: JournalRoute,
+  SideHustleBlueprintRoute: SideHustleBlueprintRoute,
+  TheClimbRoute: TheClimbRoute,
+  TheClimbPlusRoute: TheClimbPlusRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
