@@ -24,7 +24,7 @@ export function MobileStickyCta({ label, href, to = "/the-climb", checkoutUrl }:
     : <div className="mobile-sticky">{href
         ? <Button asChild variant="editorial" className="w-full"><a href={href} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>
         : <Button asChild variant="editorial" className="w-full"><Link to={to}>{label}<ArrowRight/></Link></Button>}</div>;
-  return <><div className="mobile-sticky-spacer" aria-hidden/>{bar}</>;
+  return bar;
 }
 
 /** Checkout CTA: links to the live checkout when connected, otherwise an inert integration-ready state. */

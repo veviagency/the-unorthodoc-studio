@@ -282,9 +282,9 @@ html,body{overflow-x:clip}
 
   /* Sticky checkout bar */
   .mobile-sticky{padding:.65rem 20px calc(.65rem + env(safe-area-inset-bottom));box-shadow:0 -12px 30px color-mix(in oklab,var(--ink) 12%,transparent)}
-  .mobile-sticky-spacer{height:80px}
+  body:has(.mobile-sticky) .site-footer{padding-bottom:calc(1.25rem + 74px)}
 
   /* Tap feedback */
   .pillar-card:active,.pillar-chip:active,.topic-filter a:active,.editorial-row:active,.journal-feature:active{background:color-mix(in oklab,var(--ink) 6%,transparent)}
 }
-@media(min-width:768px){.mobile-sticky-spacer{display:none}}
+
