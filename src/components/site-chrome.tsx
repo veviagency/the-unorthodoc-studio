@@ -6,34 +6,31 @@ import { navGroups } from "@/lib/site-data";
 
 type NavGroup = (typeof navGroups)[number];
 
-function DesktopNavGroup({ group }: { group: NavGroup }) {
-  const [open, setOpen] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+function DesktopNavGroup({
+  group,
+  open,
+  onOpen,
+  onClose,
+  onToggle,
+}: {
+  group: NavGroup;
+  open: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  onToggle: () => void;
+}) {
   const chevron = useRef<HTMLButtonElement | null>(null);
-
-  const openNow = () => {
-    if (timer.current) clearTimeout(timer.current);
-    setOpen(true);
-  };
-  const closeSoon = () => {
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setOpen(false), 220);
-  };
-
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
 
   return (
     <div
       className="nav-group"
       data-open={open ? "true" : undefined}
-      onMouseEnter={openNow}
-      onMouseLeave={closeSoon}
-      onFocus={openNow}
-      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false); }}
+      onMouseEnter={onOpen}
+      onFocus={onOpen}
       onKeyDown={(e) => {
         if (e.key === "Escape" && open) {
           e.stopPropagation();
-          setOpen(false);
+          onClose();
           chevron.current?.focus();
         }
       }}
@@ -45,16 +42,59 @@ function DesktopNavGroup({ group }: { group: NavGroup }) {
         className="nav-chevron"
         aria-expanded={open}
         aria-label={`${group.label} menu`}
-        onClick={() => setOpen((v) => !v)}
+        onClick={onToggle}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+            e.preventDefault();
+            onToggle();
+          }
+        }}
       >
         <ChevronDown aria-hidden />
       </button>
       <div className="nav-dropdown" hidden={!open}>
         {group.items.map((item) => (
-          <Link key={item.label} {...item.link} onClick={() => setOpen(false)}>{item.label}</Link>
+          <Link key={item.label} {...item.link} onClick={onClose}>{item.label}</Link>
         ))}
       </div>
     </div>
+  );
+}
+
+function DesktopNav() {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (timer.current) { clearTimeout(timer.current); timer.current = null; }
+  };
+  const open = (label: string) => { cancelClose(); setActiveMenu(label); };
+  const closeNow = () => { cancelClose(); setActiveMenu(null); };
+  const closeSoon = () => { cancelClose(); timer.current = setTimeout(() => setActiveMenu(null), 200); };
+
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+
+  return (
+    <nav
+      className="desktop-nav"
+      aria-label="Main navigation"
+      onMouseLeave={closeSoon}
+      onMouseEnter={cancelClose}
+      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) closeNow(); }}
+    >
+      <Link to="/" activeOptions={{ exact: true }} activeProps={{ "data-active": "true" }}>Home</Link>
+      {navGroups.map((group) => (
+        <DesktopNavGroup
+          key={group.label}
+          group={group}
+          open={activeMenu === group.label}
+          onOpen={() => open(group.label)}
+          onClose={closeNow}
+          onToggle={() => (activeMenu === group.label ? closeNow() : open(group.label))}
+        />
+      ))}
+      <Link to="/about" activeProps={{ "data-active": "true" }}>About</Link>
+    </nav>
   );
 }
 
@@ -111,11 +151,7 @@ export function SiteHeader() {
       <header className="site-header">
         <div className="site-container header-inner">
           <Link to="/" className="wordmark" aria-label="The UnOrthoDoc home"><span>The</span> UnOrthoDoc</Link>
-          <nav className="desktop-nav" aria-label="Main navigation">
-            <Link to="/" activeOptions={{ exact: true }} activeProps={{ "data-active": "true" }}>Home</Link>
-            {navGroups.map((group) => <DesktopNavGroup group={group} key={group.label} />)}
-            <Link to="/about" activeProps={{ "data-active": "true" }}>About</Link>
-          </nav>
+          <DesktopNav />
           <Button asChild className="header-cta"><Link to="/the-climb">Join The Climb</Link></Button>
           <Button variant="ghost" size="icon" className="mobile-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>{open ? <X/> : <Menu/>}</Button>
         </div>

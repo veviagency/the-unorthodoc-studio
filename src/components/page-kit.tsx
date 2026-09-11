@@ -3,11 +3,11 @@ import { ArrowRight, Check } from "lucide-react";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/dr-patrice.webp";
-import type { products } from "@/lib/site-data";
+import { productImages, type products } from "@/lib/site-data";
 
-export function PageHero({ eyebrow, title, intro, children, portraitImage = false, compact = false }: { eyebrow: string; title: string; intro: string; children?: ReactNode; portraitImage?: boolean; compact?: boolean }) {
+export function PageHero({ eyebrow, title, intro, children, portraitImage = false, compact = false, portraitSrc, portraitAlt = "Dr. Patrice Smith, founder of The UnOrthoDoc" }: { eyebrow: string; title: string; intro: string; children?: ReactNode; portraitImage?: boolean; compact?: boolean; portraitSrc?: string; portraitAlt?: string }) {
   const classes = ["page-hero", portraitImage ? "portrait-hero" : "", compact ? "compact-hero" : ""].filter(Boolean).join(" ");
-  return <section className={classes}><div className="site-container page-hero-grid"><div><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{intro}</p>{children && <div className="hero-actions">{children}</div>}</div>{portraitImage && <div className="portrait-frame"><img src={portrait} alt="Dr. Patrice Smith, founder of The UnOrthoDoc" /></div>}</div></section>;
+  return <section className={classes}><div className="site-container page-hero-grid"><div><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{intro}</p>{children && <div className="hero-actions">{children}</div>}</div>{portraitImage && <div className="portrait-frame"><img src={portraitSrc ?? portrait} alt={portraitAlt} /></div>}</div></section>;
 }
 
 export function SectionHeading({ eyebrow, title, text, action }: { eyebrow?: string; title: string; text?: string; action?: { label: string; to: "/journal" | "/shop" | "/partnerships" } }) {
@@ -24,8 +24,16 @@ export function MobileStickyCta({ label, href, to = "/the-climb" }: { label: str
     : <Button asChild variant="editorial" className="w-full"><Link to={to}>{label}<ArrowRight/></Link></Button>}</div>;
 }
 
-/** Typographic cover treatment for shop items. */
+/** Real cover artwork where available, with a typographic fallback. */
 export function ProductCover({ product, large = false }: { product: (typeof products)[number]; large?: boolean }) {
+  const image = productImages[product.slug];
+  if (image) {
+    return (
+      <div className={`product-photo${large ? " large" : ""}`}>
+        <img src={image} alt={`${product.title} cover`} loading="lazy" />
+      </div>
+    );
+  }
   return (
     <div className={`product-cover ${product.tone}${large ? " large" : ""}`} aria-hidden>
       <span className="cover-kicker">{product.coverKicker}</span>
