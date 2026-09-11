@@ -20,3 +20,112 @@ h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:.98;letter-
 a.bg-primary,button.bg-primary{color:var(--primary-foreground)}
 a.bg-clay,button.bg-clay{color:var(--clay-foreground)}
 a.bg-background,button.bg-background{color:var(--foreground)}
+
+/* ---------- V2 refinement pass ---------- */
+.site-shell{overflow-x:hidden;overflow-y:visible}
+.text-link{border-bottom:1px solid;font-weight:600}
+.empty-note{color:var(--muted-foreground)}
+.concept-tag{display:inline-block;margin-left:.6rem;padding:.1rem .45rem;border:1px solid var(--border);border-radius:2px;font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:var(--clay);vertical-align:middle}
+
+/* Navigation */
+.nav-hub{position:relative;padding:.2rem 0;transition:color .18s ease-out}
+.nav-hub:after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .18s ease-out}
+.nav-group:hover .nav-hub,.nav-hub[data-active]{color:var(--clay)}
+.nav-group:hover .nav-hub:after,.nav-hub[data-active]:after{transform:scaleX(1)}
+.nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:44px;background:none;border:0;cursor:pointer;color:inherit}
+.nav-chevron svg{width:13px;transition:transform .18s ease-out}
+.nav-group[data-open] .nav-chevron svg{transform:rotate(180deg)}
+.mobile-group-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.mobile-group-head a{flex:1;display:flex;align-items:center;min-height:52px;font-weight:600}
+.mobile-group-head button{width:52px;min-height:52px;display:flex;align-items:center;justify-content:center;background:none;border:0;color:inherit;cursor:pointer}
+.mobile-group-head svg{width:16px;transition:transform .18s ease-out}
+.mobile-sublinks{padding:.4rem 0 .9rem 1rem;border-bottom:1px solid var(--border)}
+.mobile-sublinks a{display:flex;align-items:center;min-height:44px;color:var(--muted-foreground)}
+.mobile-sublinks a:active,.mobile-nav>a:active,.path-card:active,.product-card:active,.article-card:active{background:var(--muted)}
+.sticky-header{display:none}
+
+/* Topic / collection filters */
+.topic-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+.topic-filter a{display:inline-flex;align-items:center;min-height:44px;padding:.4rem 1rem;border:1px solid var(--border);border-radius:999px;font-size:.82rem;font-weight:500;transition:background .18s ease-out,color .18s ease-out,border-color .18s ease-out}
+.topic-filter a:hover{border-color:var(--clay);color:var(--clay)}
+.topic-filter a[data-active]{background:var(--ink);border-color:var(--ink);color:var(--primary-foreground)}
+
+/* Journal hero */
+.journal-hero{padding:3.5rem 0}
+.journal-hero-grid{display:grid;gap:2rem;align-items:center}
+.journal-feature{display:flex;flex-direction:column;gap:.4rem;padding:1.8rem;background:var(--blue-stone);border:1px solid var(--border);transition:transform .25s ease-out}
+.journal-feature:hover{transform:translateY(-4px)}
+.journal-feature h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.2rem 0}
+.journal-feature p{color:color-mix(in oklab,var(--foreground) 72%,transparent);margin:0}
+.journal-feature-cta{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.82rem;font-weight:600}
+.journal-feature-cta svg{width:15px}
+.compact-hero{padding:3.5rem 0}
+.pillar-cta{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em}
+.pillar-cta svg{width:15px}
+
+/* Featured writing art direction */
+.featured-article{position:relative;background-size:cover;background-position:center top;padding:0;overflow:hidden}
+.featured-article .featured-inner{position:relative;z-index:1;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:440px;background:linear-gradient(180deg,color-mix(in oklab,var(--ink) 25%,transparent) 0%,color-mix(in oklab,var(--ink) 88%,transparent) 62%,var(--ink) 100%)}
+.featured-article blockquote{margin:1rem 0 1.4rem;padding-left:1rem;border-left:2px solid var(--clay);font:400 clamp(1.5rem,2.4vw,2rem)/1.2 var(--font-display)}
+.featured-article h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin:0 0 .6rem}
+.featured-cta{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.2rem;font-size:.82rem;font-weight:600}
+.featured-cta svg{width:15px}
+
+/* Pillar strip */
+.pillar-strip{display:grid;gap:1.2rem;align-items:center}
+.pillar-strip p{margin:0;font:400 clamp(1.4rem,2.4vw,2rem)/1.2 var(--font-display)}
+.pillar-strip>div{display:flex;flex-wrap:wrap;gap:.6rem}
+.pillar-chip{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.5rem 1.1rem;border:1px solid var(--border);font-size:.85rem;font-weight:600;transition:transform .2s ease-out}
+.pillar-chip:hover{transform:translateY(-2px)}
+.pillar-chip svg{width:15px}
+.pillar-chip.rose{background:var(--rose)}.pillar-chip.blue{background:var(--blue-stone)}.pillar-chip.clay{background:color-mix(in oklab,var(--clay) 24%,var(--background))}
+.membership-card-light{border-color:var(--border);background:var(--muted)}
+
+/* Product covers */
+.product-cover{position:relative;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:4/5;padding:1.4rem;margin-bottom:1.2rem;border:1px solid var(--border);overflow:hidden}
+.product-cover:before{content:"";position:absolute;inset:.55rem;border:1px solid color-mix(in oklab,var(--ink) 22%,transparent);pointer-events:none}
+.product-cover.clay{background:color-mix(in oklab,var(--clay) 26%,var(--background))}
+.product-cover.blue{background:var(--blue-stone)}
+.product-cover.rose{background:var(--rose)}
+.product-cover.ink{background:var(--ink);color:var(--primary-foreground)}
+.product-cover.ink:before{border-color:color-mix(in oklab,var(--primary-foreground) 35%,transparent)}
+.cover-kicker,.cover-note{font-size:.6rem;text-transform:uppercase;letter-spacing:.2em}
+.cover-title{display:flex;flex-direction:column;font:400 clamp(1.8rem,3.6vw,2.6rem)/1.05 var(--font-display)}
+.product-cover.large{aspect-ratio:3/4;padding:2rem}
+.product-cover.large .cover-title{font-size:clamp(2.4rem,4.4vw,3.4rem)}
+.product-cta{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.82rem;font-weight:600}
+.product-cta svg{width:15px}
+.product-card{border-top:0;padding:0}
+.product-card h3{font-size:1.6rem;margin:.5rem 0}
+.product-hero{padding:3.5rem 0}
+.product-hero-grid{display:grid;gap:2rem;align-items:center}
+
+@media(min-width:768px){
+  .nav-group{gap:0}
+  .nav-group:after{content:"";position:absolute;top:100%;left:0;right:-1rem;height:14px}
+  .nav-dropdown{visibility:visible;top:calc(100% + 12px);opacity:0;transform:translateY(6px);transition:opacity .17s ease-out,transform .17s ease-out}
+  .nav-dropdown[hidden]{display:block;opacity:0;transform:translateY(6px);pointer-events:none}
+  .nav-group[data-open] .nav-dropdown{opacity:1;transform:translateY(0);pointer-events:auto}
+  .nav-dropdown a{border-radius:2px;transition:background .15s ease-out,color .15s ease-out}
+  .nav-dropdown a:hover{background:var(--muted);color:var(--clay)}
+  .sticky-header{display:block;position:fixed;top:0;left:0;width:100%;z-index:60;background:color-mix(in oklab,var(--background) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);opacity:0;transform:translateY(-100%);transition:opacity .2s ease-out,transform .2s ease-out;pointer-events:none}
+  .sticky-header[data-visible]{opacity:1;transform:none;pointer-events:auto}
+  .sticky-inner{height:58px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+  .sticky-mark{font:500 1.1rem/1 var(--font-display)}
+  .sticky-nav{display:flex;gap:1.6rem;font-size:.8rem}
+  .sticky-nav a{padding:.3rem 0;border-bottom:1px solid transparent;transition:border-color .18s ease-out,color .18s ease-out}
+  .sticky-nav a:hover{color:var(--clay);border-color:var(--clay)}
+  .journal-hero-grid{grid-template-columns:1.1fr .85fr;gap:4rem}
+  .journal-hero h1{font-size:clamp(3rem,5.4vw,5rem)}
+  .journal-feature{padding:2.4rem}
+  .compact-hero{padding:5rem 0}
+  .pillar-strip{grid-template-columns:1fr auto}
+  .product-hero-grid{grid-template-columns:1.05fr .6fr;gap:4rem}
+}
+@media(max-width:767px){
+  h1{font-size:clamp(2.6rem,11vw,3.6rem)}
+  h2{font-size:clamp(2rem,8.5vw,2.9rem)}
+  .featured-article .featured-inner{min-height:380px;padding:1.5rem}
+  .section{padding:4rem 0}
+  .hero{padding:2rem 0 3rem}
+}
