@@ -28,7 +28,7 @@ export function WaitlistAction({
   return <Button size="lg" variant={variant} onClick={() => setDone(true)}>{label}<ArrowRight/></Button>;
 }
 
-export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
+export function ContactForm({ defaultTopic }: { defaultTopic?: string | undefined }) {
   const [sent, setSent] = useState(false);
   function submit(e: FormEvent) { e.preventDefault(); setSent(true); }
   const initialType = defaultTopic === "media-kit" ? "Media kit request"

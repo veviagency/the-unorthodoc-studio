@@ -40,7 +40,7 @@ function Journal() {
     <section className="section">
       <div className="site-container">
         <nav className="topic-filter" aria-label="Filter by topic">
-          <Link to="/journal" search={{ topic: undefined }} data-active={!active ? "true" : undefined}>All writing</Link>
+          <Link to="/journal" search={{}} data-active={!active ? "true" : undefined}>All writing</Link>
           {journalTopics.map((t) => (
             <Link key={t.slug} to="/journal" search={{ topic: t.slug as string }} data-active={active?.slug === t.slug ? "true" : undefined}>{t.label}</Link>
           ))}
@@ -53,7 +53,7 @@ function Journal() {
         />
 
         {list.length === 0
-          ? <p className="empty-note">No pieces are drafted under this topic yet. <Link className="text-link" to="/journal" search={{ topic: undefined }}>View all writing</Link></p>
+          ? <p className="empty-note">No pieces are drafted under this topic yet. <Link className="text-link" to="/journal" search={{}}>View all writing</Link></p>
           : <div className="editorial-list">{list.map((a, i) => (
               <article className="editorial-row" key={a.id}>
                 <span className="eyebrow">0{i + 1} · {a.pillar}</span>

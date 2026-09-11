@@ -28,7 +28,7 @@ function Shop() {
     <PageHero eyebrow="The shop" title="Tools for the life behind the goals." intro="Digital resources made to help you think clearly, take the next step, and build without adding more noise." compact/>
     <section className="section"><div className="site-container">
       <nav className="topic-filter" aria-label="Filter by collection">
-        <Link to="/shop" search={{ collection: undefined }} data-active={!active ? "true" : undefined}>Everything</Link>
+        <Link to="/shop" search={{}} data-active={!active ? "true" : undefined}>Everything</Link>
         {collections.map((c) => (
           <Link key={c.slug} to="/shop" search={{ collection: c.slug as string }} data-active={active?.slug === c.slug ? "true" : undefined}>{c.label}</Link>
         ))}
