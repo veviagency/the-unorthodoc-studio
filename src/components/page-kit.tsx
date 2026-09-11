@@ -18,10 +18,21 @@ export function FeatureList({ items }: { items: readonly string[] }) {
   return <ul className="feature-list">{items.map(item => <li key={item}><Check/>{item}</li>)}</ul>;
 }
 
-export function MobileStickyCta({ label, href, to = "/the-climb" }: { label: string; href?: string; to?: "/the-climb" | "/contact" | "/shop" }) {
+export function MobileStickyCta({ label, href, to = "/the-climb", checkoutUrl }: { label: string; href?: string; to?: "/the-climb" | "/contact" | "/shop"; checkoutUrl?: string | null }) {
+  if (checkoutUrl !== undefined) {
+    return <div className="mobile-sticky"><CheckoutButton label={label} url={checkoutUrl} className="w-full"/></div>;
+  }
   return <div className="mobile-sticky">{href
     ? <Button asChild variant="editorial" className="w-full"><a href={href} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>
     : <Button asChild variant="editorial" className="w-full"><Link to={to}>{label}<ArrowRight/></Link></Button>}</div>;
+}
+
+/** Checkout CTA: links to the live checkout when connected, otherwise an inert integration-ready state. */
+export function CheckoutButton({ label, url, size, variant = "editorial", className }: { label: string; url: string | null; size?: "lg" | "sm"; variant?: "editorial" | "inverse"; className?: string }) {
+  if (url) {
+    return <Button asChild size={size} variant={variant} className={className}><a href={url} target="_blank" rel="noreferrer">{label}<ArrowRight/></a></Button>;
+  }
+  return <Button type="button" size={size} variant={variant} className={className} disabled aria-disabled title="Checkout opens soon">{label}<ArrowRight/></Button>;
 }
 
 /** Real cover artwork where available, with a typographic fallback. */
