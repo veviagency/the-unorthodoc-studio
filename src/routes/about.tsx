@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PageHero, SectionHeading } from "@/components/page-kit";
+import { DefinitionCallout, PageHero, SectionHeading } from "@/components/page-kit";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
@@ -13,16 +13,6 @@ export const Route = createFileRoute("/about")({
   ]}),
   component: About,
 });
-
-export function DefinitionCallout() {
-  return (
-    <aside className="definition-callout">
-      <span className="definition-word">un·ortho·doc</span>
-      <span className="definition-say">/ˌən-ˈȯr-thə-ˌdäk/ · noun</span>
-      <p>A doctor who does it a little differently—honoring the calling, and still building a life beyond the title.</p>
-    </aside>
-  );
-}
 
 function About() {
   return <>
