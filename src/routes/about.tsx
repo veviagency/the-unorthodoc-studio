@@ -31,12 +31,8 @@ function About() {
         <Button asChild variant="outline"><Link to="/journal">Read the journal</Link></Button>
       </div>
     </div></section>
-    <section className="section section-muted"><div className="site-container collab-layout">
-      <div><span className="eyebrow">Clinical care</span><h2>Looking for an orthodontist?</h2></div>
-      <div>
-        <p>The UnOrthoDoc is my personal media and education platform. My Washington, DC clinical practice has its own dedicated home.</p>
-        <Button asChild variant="outline"><a href="https://www.infinityorthodc.com/" target="_blank" rel="noreferrer">Visit Infinity Orthodontics <ArrowUpRight/></a></Button>
-      </div>
+    <section className="section section-muted"><div className="site-container">
+      <p className="quiet-callout">Looking for clinical care? My Washington, DC practice has its own home. <a className="text-link" href="https://www.infinityorthodc.com/" target="_blank" rel="noreferrer">Visit Infinity Orthodontics <ArrowUpRight/></a></p>
     </div></section>
   </>;
 }
