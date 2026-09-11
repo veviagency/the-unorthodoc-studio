@@ -52,9 +52,9 @@ function Blueprint() {
       <h2>You do not have to become someone else to build something new.</h2>
       <div>
         <p>Start with what you know, what people need, and what your real life can hold.</p>
-        <Button asChild size="lg" variant="editorial"><Link to="/contact" search={{ topic: "collaboration" }}>Enroll — $197 <ArrowRight/></Link></Button>
+        <CheckoutButton label="Enroll — $197" url={COURSE_CHECKOUT_URL} size="lg"/>
       </div>
     </div></section>
-    <MobileStickyCta label="Enroll — $197" to="/contact"/>
+    <MobileStickyCta label="Enroll — $197" checkoutUrl={COURSE_CHECKOUT_URL}/>
   </>;
 }
