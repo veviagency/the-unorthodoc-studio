@@ -1,0 +1,6 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { PageHero, SectionHeading } from "@/components/page-kit";
+import { products } from "@/lib/site-data";
+export const Route=createFileRoute("/shop/")({head:()=>({meta:[{title:"Shop — The UnOrthoDoc"},{name:"description",content:"Explore practical digital guides, planners, and thoughtful tools from The UnOrthoDoc."},{property:"og:title",content:"Shop — The UnOrthoDoc"},{property:"og:description",content:"Thoughtfully made tools for building a meaningful life with more clarity."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:Shop});
+function Shop(){return <><PageHero eyebrow="The shop" title="Tools for the life behind the goals." intro="Digital resources made to help you think clearly, take the next step, and build without adding more noise."/><section className="section"><div className="site-container"><SectionHeading eyebrow="The collection" title="Practical by design."/><div className="product-grid">{products.map(p=><Link key={p.slug} to="/shop/$slug" params={{slug:p.slug}} className="product-card"><span>{p.kind}</span><h3>{p.title}</h3><p>{p.text}</p><strong className="price">{p.price}</strong><span>View product <ArrowRight/></span></Link>)}</div></div></section></>}

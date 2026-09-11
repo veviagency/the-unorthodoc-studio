@@ -10,33 +10,163 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as PartnershipsRouteImport } from './routes/partnerships'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SideHustleBlueprintRouteImport } from './routes/side-hustle-blueprint'
+import { Route as TheClimbRouteImport } from './routes/the-climb'
+import { Route as TheClimbPlusRouteImport } from './routes/the-climb-plus'
+import { Route as ShopIndexRouteImport } from './routes/shop.index'
+import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnershipsRoute = PartnershipsRouteImport.update({
+  id: '/partnerships',
+  path: '/partnerships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SideHustleBlueprintRoute = SideHustleBlueprintRouteImport.update({
+  id: '/side-hustle-blueprint',
+  path: '/side-hustle-blueprint',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheClimbRoute = TheClimbRouteImport.update({
+  id: '/the-climb',
+  path: '/the-climb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheClimbPlusRoute = TheClimbPlusRouteImport.update({
+  id: '/the-climb-plus',
+  path: '/the-climb-plus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopSlugRoute = ShopSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ShopRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/journal': typeof JournalRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/side-hustle-blueprint': typeof SideHustleBlueprintRoute
+  '/the-climb': typeof TheClimbRoute
+  '/the-climb-plus': typeof TheClimbPlusRoute
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/journal': typeof JournalRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/side-hustle-blueprint': typeof SideHustleBlueprintRoute
+  '/the-climb': typeof TheClimbRoute
+  '/the-climb-plus': typeof TheClimbPlusRoute
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop': typeof ShopIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/journal': typeof JournalRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/side-hustle-blueprint': typeof SideHustleBlueprintRoute
+  '/the-climb': typeof TheClimbRoute
+  '/the-climb-plus': typeof TheClimbPlusRoute
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/journal'
+    | '/partnerships'
+    | '/shop'
+    | '/side-hustle-blueprint'
+    | '/the-climb'
+    | '/the-climb-plus'
+    | '/shop/$slug'
+    | '/shop/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/journal'
+    | '/partnerships'
+    | '/side-hustle-blueprint'
+    | '/the-climb'
+    | '/the-climb-plus'
+    | '/shop/$slug'
+    | '/shop'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/journal'
+    | '/partnerships'
+    | '/shop'
+    | '/side-hustle-blueprint'
+    | '/the-climb'
+    | '/the-climb-plus'
+    | '/shop/$slug'
+    | '/shop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  JournalRoute: typeof JournalRoute
+  PartnershipsRoute: typeof PartnershipsRoute
+  ShopRoute: typeof ShopRouteWithChildren
+  SideHustleBlueprintRoute: typeof SideHustleBlueprintRoute
+  TheClimbRoute: typeof TheClimbRoute
+  TheClimbPlusRoute: typeof TheClimbPlusRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +178,101 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partnerships': {
+      id: '/partnerships'
+      path: '/partnerships'
+      fullPath: '/partnerships'
+      preLoaderRoute: typeof PartnershipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/side-hustle-blueprint': {
+      id: '/side-hustle-blueprint'
+      path: '/side-hustle-blueprint'
+      fullPath: '/side-hustle-blueprint'
+      preLoaderRoute: typeof SideHustleBlueprintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-climb': {
+      id: '/the-climb'
+      path: '/the-climb'
+      fullPath: '/the-climb'
+      preLoaderRoute: typeof TheClimbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-climb-plus': {
+      id: '/the-climb-plus'
+      path: '/the-climb-plus'
+      fullPath: '/the-climb-plus'
+      preLoaderRoute: typeof TheClimbPlusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop/': {
+      id: '/shop/'
+      path: '/'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/$slug': {
+      id: '/shop/$slug'
+      path: '/$slug'
+      fullPath: '/shop/$slug'
+      preLoaderRoute: typeof ShopSlugRouteImport
+      parentRoute: typeof ShopRoute
+    }
   }
 }
 
+interface ShopRouteChildren {
+  ShopSlugRoute: typeof ShopSlugRoute
+  ShopIndexRoute: typeof ShopIndexRoute
+}
+
+const ShopRouteChildren: ShopRouteChildren = {
+  ShopSlugRoute: ShopSlugRoute,
+  ShopIndexRoute: ShopIndexRoute,
+}
+
+const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  JournalRoute: JournalRoute,
+  PartnershipsRoute: PartnershipsRoute,
+  ShopRoute: ShopRouteWithChildren,
+  SideHustleBlueprintRoute: SideHustleBlueprintRoute,
+  TheClimbRoute: TheClimbRoute,
+  TheClimbPlusRoute: TheClimbPlusRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
