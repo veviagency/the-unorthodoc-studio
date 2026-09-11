@@ -25,17 +25,19 @@ function HomePage() {
       <div className="hero-copy">
         <span className="eyebrow">The UnOrthoDoc</span>
         <h1>Build a life<br/>that fits.</h1>
-        <p>Thoughtful reflections, practical resources, and honest ideas for professionals building meaningful work, stronger finances, and a full life beyond one title.</p>
+        <p>I’m Dr. Patrice Smith—orthodontist, writer, and mother of three. This is where I share honest reflections and practical resources for building meaningful work, stronger finances, and a full life beyond one title.</p>
         <div className="hero-actions">
           <Button asChild size="lg" variant="editorial"><Link to="/the-climb">Join The Climb <ArrowRight/></Link></Button>
           <Button asChild size="lg" variant="outline"><Link to="/journal">Explore the Journal</Link></Button>
         </div>
+        <DefinitionCallout/>
       </div>
       <div className="hero-image"><img src={portrait} alt="Dr. Patrice Smith seated by a sunlit window" /></div>
     </div></section>
 
+
     <section className="section"><div className="site-container">
-      <SectionHeading eyebrow="Start here" title="Find your way." text="There is more than one way to build a full life. Choose the path that meets you where you are."/>
+      <SectionHeading eyebrow="Start here" title="Find your way." text="There is more than one way to build a full life. Pick the path that meets you where you are today."/>
       <div className="path-grid">{paths.map(path=>(
         <Link className="path-card" to={path.to} key={path.title}><span className="number">{path.n}</span><div><h3>{path.title}</h3><p>{path.text}</p></div><ArrowRight/></Link>
       ))}</div>
