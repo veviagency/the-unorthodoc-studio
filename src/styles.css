@@ -126,9 +126,8 @@ html,body{overflow-x:clip}
   .about-editorial{grid-template-columns:1.05fr .95fr;column-gap:5rem;row-gap:1.6rem}
   .about-editorial .about-head{grid-column:1/-1}
   .about-editorial .about-head h2{font-size:clamp(2.6rem,3.6vw,3.6rem)}
-  .journal-hero-grid{grid-template-columns:1.1fr .85fr;gap:4rem}
+  .journal-hero-grid{max-width:820px}
   .journal-hero h1{font-size:clamp(3rem,5.4vw,5rem)}
-  .journal-feature{padding:2.4rem}
   .compact-hero{padding:5rem 0}
   .pillar-strip{grid-template-columns:1fr auto}
   .product-hero-grid{grid-template-columns:1.05fr .6fr;gap:4rem}
