@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterForm } from "@/components/forms";
 import { DefinitionCallout, FeatureList, ProductCover, SectionHeading } from "@/components/page-kit";
-import { articles, paths, pillars, products } from "@/lib/site-data";
+import { articles, paths, products } from "@/lib/site-data";
 import portrait from "@/assets/dr-patrice.webp";
 
 export const Route = createFileRoute("/")({
@@ -67,26 +67,16 @@ function HomePage() {
       <NewsletterForm/>
     </div></section>
 
-    <section className="section section-muted"><div className="site-container">
-      <div className="pillar-strip">
-        <div className="pillar-strip-copy"><span className="eyebrow">The editorial lens</span><p>Every piece sits inside one of three pillars.</p></div>
-        <div>{pillars.map(p=>(
-          <Link key={p.title} to="/journal" search={{ topic: p.topic as string }} className={`pillar-chip ${p.tone}`}>{p.title} <ArrowRight/></Link>
-        ))}</div>
-      </div>
-    </div></section>
-
     <section className="section"><div className="site-container membership-layout">
       <div>
         <span className="eyebrow">Inside The Climb+</span><h2>A quieter space to go deeper.</h2>
         <p>The ongoing conversation for thoughtful professionals navigating ambition, entrepreneurship, motherhood, and a life that actually fits.</p>
         <FeatureList items={["Deeper weekly reflections","Private audio reflections","Guided prompts","Growing resource library","Occasional live conversations and workshops"]}/>
-        <Button asChild size="lg" variant="editorial"><Link to="/the-climb-plus">Explore The Climb+ <ArrowRight/></Link></Button>
       </div>
       <div className="membership-card membership-card-light">
         <span className="eyebrow">Membership</span><h3>$19 a month, or $179 a year.</h3>
         <p>Less noise. More honesty, context, and practical perspective for what comes next.</p>
-        <Button asChild variant="editorial"><Link to="/the-climb-plus">Join The Climb+ <ArrowRight/></Link></Button>
+        <Button asChild variant="editorial"><Link to="/the-climb-plus">Explore The Climb+ <ArrowRight/></Link></Button>
       </div>
     </div></section>
 

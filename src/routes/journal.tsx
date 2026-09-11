@@ -47,9 +47,8 @@ function Journal() {
         </nav>
 
         <SectionHeading
-          eyebrow={active ? `Topic · ${active.pillar}` : "All writing"}
-          title={active ? active.label : "Ideas worth sitting with."}
-          text={active ? "" : "Recent essays and reflections from Dr. Patrice Smith."}
+          title={active ? active.label : "All writing"}
+          text={active ? `Essays and reflections on ${active.pillar.toLowerCase()}.` : "Recent essays and reflections from Dr. Patrice Smith."}
         />
 
         {list.length === 0

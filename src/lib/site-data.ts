@@ -133,7 +133,6 @@ export const paths = [
   { n: "02", title: "Build Something of Your Own", text: "A grounded framework for professionals creating more options.", to: "/side-hustle-blueprint" },
   { n: "03", title: "Go Deeper", text: "The Climb+ brings private audio, guided prompts, and live conversations.", to: "/the-climb-plus" },
   { n: "04", title: "Practical Resources", text: "Planners, e-books, and workbooks I use myself—plus the UnOrthoDoc tee.", to: "/shop" },
-  { n: "05", title: "Partner With Dr. Patrice", text: "Thoughtful collaborations for brands serving modern professionals.", to: "/partnerships" },
 ] as const;
 
 export const pillars = [

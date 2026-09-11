@@ -33,19 +33,11 @@ function Product() {
       </div>
       <ProductCover product={product} large/>
     </div></section>
-    <section className="section"><div className="site-container course-layout">
-      <div>
-        <span className="eyebrow">{apparel ? "Wear it well" : "How to use it"}</span>
-        <h2>{apparel ? "Soft triblend, everyday fit." : "Built for real weeks, not perfect ones."}</h2>
+    <section className="section"><div className="site-container">
+      <div className="quiet-callout">
         <p>{apparel
-          ? "Available in Vintage Red, Premium Heather, Military Green, Vintage Black, and Vintage Royal. Wear it and tag @dr.unorthodoc."
-          : "This is a digital download you can print or work through on screen, made to fit around a full calendar rather than replace it."}</p>
-      </div>
-      <div className="membership-card membership-card-light">
-        <span className="eyebrow">Details</span>
-        <h3>{product.title}</h3>
-        <div className="price">{product.price}</div>
-        <p>{apparel ? "Sizes and colours are selected at checkout on the UnOrthoDoc store." : "Delivered as an instant download through the UnOrthoDoc store."}</p>
+          ? "Sizes and colours are selected at checkout on the UnOrthoDoc store."
+          : "A digital download you can print or use on screen, delivered instantly through the UnOrthoDoc store."}</p>
         <ExternalCta href={product.url} label={apparel ? "Choose your size" : "Go to the store"}/>
       </div>
     </div></section>
