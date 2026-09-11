@@ -293,6 +293,6 @@ html,body{overflow-x:clip}
   body:has(.mobile-sticky) .site-footer{padding-bottom:calc(1.25rem + 110px)}
 
   /* Tap feedback */
-  .pillar-card:active,.pillar-chip:active,.topic-filter a:active,.editorial-row:active,.journal-feature:active{background:color-mix(in oklab,var(--ink) 6%,transparent)}
+  .pillar-card:active,.pillar-chip:active,.topic-filter a:active,.editorial-row:active{background:color-mix(in oklab,var(--ink) 6%,transparent)}
 }
 
