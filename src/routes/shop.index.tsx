@@ -41,7 +41,7 @@ function Shop() {
           <h3>{p.title}</h3>
           <p>{p.text}</p>
           <strong className="price">{p.price}</strong>
-          <span className="product-cta">{p.status} <ArrowRight/></span>
+          <span className="product-cta">View details <ArrowRight/></span>
         </Link>
       ))}</div>
     </div></section>
