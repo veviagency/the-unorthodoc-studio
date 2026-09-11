@@ -25,7 +25,6 @@ a.bg-background,button.bg-background{color:var(--foreground)}
 html,body{overflow-x:clip}
 .text-link{border-bottom:1px solid;font-weight:600}
 .empty-note{color:var(--muted-foreground)}
-.concept-tag{display:inline-block;margin-left:.6rem;padding:.1rem .45rem;border:1px solid var(--border);border-radius:2px;font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:var(--clay);vertical-align:middle}
 
 /* Navigation */
 .nav-hub{position:relative;padding:.2rem 0;transition:color .18s ease-out}
