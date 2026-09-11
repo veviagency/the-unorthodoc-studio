@@ -34,9 +34,12 @@ function Product() {
       <ProductCover product={product} large/>
     </div></section>
     <section className="section"><div className="site-container">
-      <p className="quiet-callout">{apparel
-        ? "Sizes and colours are selected at checkout on the UnOrthoDoc store."
-        : "A digital download you can print or use on screen, delivered instantly through the UnOrthoDoc store."} <ExternalCta href={product.url} label={apparel ? "Choose your size" : "Go to the store"}/></p>
+      <div className="quiet-callout">
+        <p>{apparel
+          ? "Sizes and colours are selected at checkout on the UnOrthoDoc store."
+          : "A digital download you can print or use on screen, delivered instantly through the UnOrthoDoc store."}</p>
+        <ExternalCta href={product.url} label={apparel ? "Choose your size" : "Go to the store"}/>
+      </div>
     </div></section>
     <MobileStickyCta label={cta} href={product.url}/>
   </>;
