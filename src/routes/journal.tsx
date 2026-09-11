@@ -30,7 +30,7 @@ function Journal() {
         <p>Essays and reflections on the questions that rarely fit inside one professional title.</p>
       </div>
       <Link to="/journal" search={{ topic: featured.topic as string }} className="journal-feature">
-        <span className="eyebrow">Concept piece · {featured.pillar}</span>
+        <span className="eyebrow">Featured · {featured.date}</span>
         <h2>{featured.title}</h2>
         <p>{featured.excerpt}</p>
         <span className="journal-feature-cta">Read the reflection <ArrowRight/></span>
@@ -49,16 +49,16 @@ function Journal() {
         <SectionHeading
           eyebrow={active ? `Topic · ${active.pillar}` : "All writing"}
           title={active ? active.label : "Ideas worth sitting with."}
-          text={active ? `Concept pieces shaped for ${active.label.toLowerCase()}. Final published titles will replace these at launch.` : "These are polished concept pieces created for this design—ready to be replaced with Dr. Patrice’s published writing."}
+          text={active ? undefined : "Recent essays and reflections from Dr. Patrice Smith."}
         />
 
         {list.length === 0
-          ? <p className="empty-note">No pieces are drafted under this topic yet. <Link className="text-link" to="/journal" search={{}}>View all writing</Link></p>
-          : <div className="editorial-list">{list.map((a, i) => (
+          ? <p className="empty-note">There are no posts under this topic yet. <Link className="text-link" to="/journal" search={{}}>View all writing</Link></p>
+          : <div className="editorial-list">{list.map((a) => (
               <article className="editorial-row" key={a.id}>
-                <span className="eyebrow">0{i + 1} · {a.pillar}</span>
+                <span className="eyebrow">{a.pillar} · {a.date}</span>
                 <h3>{a.title}</h3>
-                <p>{a.excerpt}<span className="concept-tag">Concept</span></p>
+                <p>{a.excerpt}</p>
               </article>
             ))}</div>}
       </div>
