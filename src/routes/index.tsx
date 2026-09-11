@@ -69,7 +69,7 @@ function HomePage() {
 
     <section className="section section-muted"><div className="site-container">
       <div className="pillar-strip">
-        <p><span className="eyebrow">The editorial lens</span>Every piece sits inside one of three pillars.</p>
+        <div className="pillar-strip-copy"><span className="eyebrow">The editorial lens</span><p>Every piece sits inside one of three pillars.</p></div>
         <div>{pillars.map(p=>(
           <Link key={p.title} to="/journal" search={{ topic: p.topic as string }} className={`pillar-chip ${p.tone}`}>{p.title} <ArrowRight/></Link>
         ))}</div>
