@@ -130,3 +130,7 @@ html,body{overflow-x:clip}
   .hero{padding:2rem 0 3rem}
 }
 @media(min-width:768px){.path-card{min-height:236px}.product-card{min-height:auto}.hero-grid{min-height:560px}}
+.featured-editorial{background:radial-gradient(120% 90% at 12% 8%,color-mix(in oklab,var(--clay) 42%,var(--ink)) 0%,var(--ink) 58%)}
+.featured-editorial:before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(115deg,color-mix(in oklab,var(--primary-foreground) 7%,transparent) 0 1px,transparent 1px 26px);pointer-events:none}
+.featured-editorial .featured-inner{background:linear-gradient(180deg,transparent 0%,color-mix(in oklab,var(--ink) 55%,transparent) 100%)}
+.featured-editorial .featured-inner:before{content:"”";position:absolute;top:-1.2rem;right:1rem;font:400 16rem/1 var(--font-display);color:color-mix(in oklab,var(--primary-foreground) 9%,transparent);pointer-events:none}

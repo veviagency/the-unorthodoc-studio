@@ -5,7 +5,6 @@ import { NewsletterForm } from "@/components/forms";
 import { FeatureList, ProductCover, SectionHeading } from "@/components/page-kit";
 import { articles, paths, pillars, products } from "@/lib/site-data";
 import portrait from "@/assets/dr-patrice.webp";
-import portraitDark from "@/assets/dr-patrice-dark.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -45,7 +44,7 @@ function HomePage() {
     <section className="section"><div className="site-container">
       <SectionHeading eyebrow="From the journal" title="Ideas worth sitting with." action={{label:"View all writing",to:"/journal"}}/>
       <div className="featured-layout">
-        <Link to="/journal" search={{ topic: featured.topic as string }} className="featured-article" style={{ backgroundImage: `url(${portraitDark})` }}>
+        <Link to="/journal" search={{ topic: featured.topic as string }} className="featured-article featured-editorial">
           <div className="featured-inner">
             <span>Concept piece · {featured.pillar}</span>
             <blockquote>“A life can be ambitious and still feel like your own.”</blockquote>
